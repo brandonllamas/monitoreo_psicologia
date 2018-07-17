@@ -7,6 +7,7 @@ package frames;
 
 import bd.conected;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -55,8 +56,9 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         text = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -79,7 +81,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -124,22 +126,24 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 630, 87, 65));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 87, 65));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(872, 639, 100, 65));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 640, 100, 65));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/testingheadforweb-236x300.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 368, 251));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
+        jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +160,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(935, 165, 91, 35));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nombre estudiante", "grado" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -164,6 +168,14 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 163, 129, 39));
         jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(787, 164, 130, 38));
+
+        jButton6.setText("Guardar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 110, 60));
 
         jMenu1.setText("opciones");
 
@@ -309,6 +321,35 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < mode.getRowCount(); i++) {
+            for (int j = 0; j < mode.getColumnCount(); j++) {
+               int lasd=Integer.parseInt(String.valueOf(mode.getValueAt(i,5)));
+                System.out.println(Integer.parseInt(String.valueOf(mode.getValueAt(i,5))));
+                String sql="UPDATE `seguimiento` SET `nombre_e`=?,`maetro_acomp_actual`=?,`maestro_acomp_anterior`=?,`grado`=?,`antiguedad_estudiante`=? WHERE  id=?";
+                try {
+                    PreparedStatement ca= cn.prepareStatement(sql);
+                    
+                    ca.setString(1, String.valueOf(mode.getValueAt(i,1)));
+                     ca.setString(2,String.valueOf(mode.getValueAt(i,2)));
+                      ca.setString(3,String.valueOf(mode.getValueAt(i,3)));
+                   
+                        ca.setInt(4, lasd);
+                         ca.setString(5,String.valueOf(mode.getValueAt(i,6)));
+                           ca.setString(6,String.valueOf(mode.getValueAt(i,0)));
+                           ca.execute();
+                          
+                } catch (SQLException ex) {
+                    Logger.getLogger(estudiantes_seguimiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+    
+        }
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,6 +422,7 @@ mode.removeRow(i );
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
@@ -391,4 +433,8 @@ mode.removeRow(i );
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField text;
     // End of variables declaration//GEN-END:variables
+
+    private String toString(Object valueAt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

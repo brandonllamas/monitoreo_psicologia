@@ -84,12 +84,12 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="7" rowCount="0">
                     <Column editable="false" title="id" type="java.lang.Integer"/>
-                    <Column editable="false" title="nombre estudiante" type="java.lang.String"/>
-                    <Column editable="false" title="Maestro acompa&#xf1;ante actual" type="java.lang.String"/>
-                    <Column editable="false" title="Maetro acompa&#xf1;ante anterior" type="java.lang.String"/>
-                    <Column editable="false" title="fecha" type="java.lang.String"/>
-                    <Column editable="false" title="grado" type="java.lang.Integer"/>
-                    <Column editable="false" title="antiguedad del estudiante " type="java.lang.String"/>
+                    <Column editable="true" title="nombre estudiante" type="java.lang.String"/>
+                    <Column editable="true" title="Maestro acompa&#xf1;ante actual" type="java.lang.String"/>
+                    <Column editable="true" title="Maetro acompa&#xf1;ante anterior" type="java.lang.String"/>
+                    <Column editable="true" title="fecha" type="java.lang.String"/>
+                    <Column editable="true" title="grado" type="java.lang.Integer"/>
+                    <Column editable="true" title="antiguedad del estudiante " type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -178,7 +178,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="300" y="630" width="87" height="65"/>
+              <AbsoluteConstraints x="200" y="630" width="87" height="65"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -187,6 +187,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/icon.png"/>
             </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -194,7 +195,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="872" y="639" width="100" height="65"/>
+              <AbsoluteConstraints x="880" y="640" width="100" height="65"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -216,6 +217,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/pencil.png"/>
             </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -265,6 +267,19 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="787" y="164" width="130" height="38"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="380" y="640" width="110" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
