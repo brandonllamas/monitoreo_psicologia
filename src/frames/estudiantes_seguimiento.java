@@ -15,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,7 +36,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
        
         initComponents();
         showdatos();
-               setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
+                setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
 
     }
 
@@ -59,6 +61,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         text = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -115,7 +118,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 639, 78, 65));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 78, 65));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/remove.png"))); // NOI18N
         jButton2.setAutoscrolls(true);
@@ -126,7 +129,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 87, 65));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 87, 65));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon.png"))); // NOI18N
         jButton3.setBorderPainted(false);
@@ -136,10 +139,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 640, 100, 65));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 100, 65));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/testingheadforweb-236x300.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pnj.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 368, 251));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
@@ -150,7 +153,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(619, 631, 116, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 116, -1));
 
         jButton5.setText("buscar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +161,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(935, 165, 91, 35));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 91, 35));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -166,16 +169,20 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 163, 129, 39));
-        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(787, 164, 130, 38));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 129, 39));
+        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 130, 38));
 
-        jButton6.setText("Guardar");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/save.png"))); // NOI18N
+        jButton6.setContentAreaFilled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 640, 110, 60));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 620, 110, 70));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 690));
 
         jMenu1.setText("opciones");
 
@@ -353,28 +360,28 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(estudiantes_seguimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mod_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(estudiantes_seguimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mod_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(estudiantes_seguimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mod_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(estudiantes_seguimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+            java.util.logging.Logger.getLogger(mod_u.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+           }
         //</editor-fold>
 
         /* Create and display the form */
@@ -425,6 +432,7 @@ mode.removeRow(i );
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

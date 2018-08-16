@@ -132,7 +132,7 @@ Connection cn=con.conect();
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 14, 429, 52));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Domincos");
+        jLabel3.setText("Dominicos");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 89, 45));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
