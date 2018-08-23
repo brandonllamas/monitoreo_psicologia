@@ -7,6 +7,7 @@
 package frames;
 
 import bd.conected;
+import clases.Sesion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import java.text.ParseException;
 import com.alee.global.GlobalConstants;
+import javax.mail.NoSuchProviderException;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
@@ -183,6 +185,7 @@ public class login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        conectmail();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -218,6 +221,18 @@ public class login extends javax.swing.JFrame {
                 new login().setVisible(true);
             }
         });
+    }
+    public  void conectmail(){
+    
+        Sesion s;
+           try {
+               System.out.println("correo conectado");
+               s= new Sesion("smtp.gmail.com", "587","brandonllamaslarios@gmail.com".trim(),"raquelita132");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("Correo no conectado");
+           }
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
