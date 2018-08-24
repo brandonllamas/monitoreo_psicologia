@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import java.text.ParseException;
 import com.alee.global.GlobalConstants;
+import java.util.Random;
 import javax.mail.NoSuchProviderException;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -186,6 +187,7 @@ public class login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         conectmail();
+        System.out.println(numero());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -233,6 +235,13 @@ public class login extends javax.swing.JFrame {
                System.out.println("Correo no conectado");
            }
     
+    }
+    public int numero(){
+       int valorEntero = (int) Math.floor(Math.random()*(99999-00+1)+0);
+        
+       
+        
+    return valorEntero;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
