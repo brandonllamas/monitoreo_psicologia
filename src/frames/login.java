@@ -187,7 +187,8 @@ public class login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         conectmail();
-        System.out.println(numero());
+        String correo=JOptionPane.showInputDialog("Ingresar correo");
+        enviarDatos(correo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -229,7 +230,7 @@ public class login extends javax.swing.JFrame {
         Sesion s;
            try {
                System.out.println("correo conectado");
-               s= new Sesion("smtp.gmail.com", "587","brandonllamaslarios@gmail.com".trim(),"raquelita132");
+               s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
            } catch (NoSuchProviderException ex) {
                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
                System.out.println("Correo no conectado");
@@ -237,12 +238,34 @@ public class login extends javax.swing.JFrame {
     
     }
     public int numero(){
-       int valorEntero = (int) Math.floor(Math.random()*(99999-00+1)+0);
-        
-       
-        
-    return valorEntero;
+       int i = (int) Math.floor(Math.random()*(99999-00+1)+0);
+          return i;
     }
+    public void enviarDatos(String correo){
+    int i=numero();
+        consulta(i);
+           try {
+               Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
+               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","El codigo de recuperación es:"+i);
+               System.out.println("mensaje enviado");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    
+    
+    
+    }
+    public void consulta(int i){
+           try {
+               PreparedStatement c=cn.prepareStatement("INSERT INTO `recuperar`( `num_al`) VALUES (?)");
+               c.setInt(i, 1);
+               c.execute();
+           } catch (SQLException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
