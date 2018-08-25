@@ -189,6 +189,9 @@ public class login extends javax.swing.JFrame {
         conectmail();
         String correo=JOptionPane.showInputDialog("Ingresar correo");
         enviarDatos(correo);
+        Recup a=new Recup();
+        a.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -247,7 +250,7 @@ public class login extends javax.swing.JFrame {
            try {
                Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
                s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","El codigo de recuperación es:"+i);
-               System.out.println("mensaje enviado");
+               JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
            } catch (NoSuchProviderException ex) {
                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -258,7 +261,7 @@ public class login extends javax.swing.JFrame {
     public void consulta(int i){
            try {
                PreparedStatement c=cn.prepareStatement("INSERT INTO `recuperar`( `num_al`) VALUES (?)");
-               c.setInt(i, 1);
+               c.setInt(1,i);
                c.execute();
            } catch (SQLException ex) {
                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);

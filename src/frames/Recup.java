@@ -5,14 +5,26 @@
  */
 package frames;
 
+import bd.conected;
+import clases.Sesion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.NoSuchProviderException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author BRANDON
  */
 public class Recup extends javax.swing.JFrame {
-
+    conected con=new conected();
+    Connection cn=con.conect();
+   
     /**
      * Creates new form menu
      */
@@ -31,24 +43,69 @@ public class Recup extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setText("Ingrese el codigo de recuperación");
+
+        jButton2.setText("Recuperar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 203, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       
+        int num_text=Integer.parseInt(jTextField1.getText());
+        int codigo=numero();
+        if(num_text==codigo){
+             restablecercontra();
+             restablecerusuario();
+            
+        eliminarnumero();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,8 +142,75 @@ public class Recup extends javax.swing.JFrame {
             }
         });
     }
+private int numero(){
+int i=0;
+        try {
+            Statement a=cn.createStatement();
+            String query="SELECT  `num_al` FROM `recuperar`";
+            ResultSet ab=a.executeQuery(query);
+            while (ab.next()) {
+                i=ab.getInt("num_al");
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Recup.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+return i;
+}
+private void eliminarnumero(){
+
+        try {
+            Statement a=cn.createStatement();
+            a.execute("DELETE FROM `recuperar` WHERE num_al="+numero());
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Recup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
+private void restablecercontra(){
+    
+
+       String sql="UPDATE `usuario` SET `contraseña_u`=12345";
+        Statement st;
+        try {
+            st = cn.createStatement();
+            st.executeUpdate(sql);
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+private void restablecerusuario(){
+  String sql="UPDATE `usuario` SET `nombre_u`=root";
+        Statement st;
+        try {
+            st = cn.createStatement();
+            st.executeUpdate(sql);
+ 
+        } catch (SQLException ex) {
+            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }                
+
+    public void enviarDatos(String correo){
+   
+           try {
+               Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
+               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","El usuario es : root  y la contraseñ: 12345");
+               JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    
+    
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
