@@ -32,6 +32,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class login extends javax.swing.JFrame {
        conected con=new conected();
     Connection cn=con.conect();
+    int numero;
 
     /** Creates new form login */
     public login() {
@@ -189,7 +190,8 @@ public class login extends javax.swing.JFrame {
         conectmail();
         String correo=JOptionPane.showInputDialog("Ingresar correo");
         enviarDatos(correo);
-        Recup a=new Recup();
+        int sa=numero;
+        Recup a=new Recup(sa,correo);
         a.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -246,6 +248,7 @@ public class login extends javax.swing.JFrame {
     }
     public void enviarDatos(String correo){
     int i=numero();
+    numero=i;
         consulta(i);
            try {
                Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");

@@ -227,6 +227,9 @@ public class mod_u extends javax.swing.JFrame {
                     psr.setString(1,con_n.getText());
                     psr.executeUpdate();
                     JOptionPane.showMessageDialog(rootPane,"contraseña cambiada");
+                      login a=new login();
+        a.setVisible(true);
+        dispose();
 
                 } catch (SQLException ex) {
                     Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
@@ -255,6 +258,9 @@ public class mod_u extends javax.swing.JFrame {
                     psr.setString(1,nombre.getText());
                     psr.executeUpdate();
                     JOptionPane.showMessageDialog(rootPane,"nombre cambiada");
+                      login a=new login();
+        a.setVisible(true);
+        dispose();
 
                 } catch (SQLException ex) {
                     Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
@@ -270,7 +276,8 @@ public class mod_u extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-          String sql="UPDATE `usuario` SET `nombre_u`=root";
+        String root="root";
+          String sql="UPDATE `usuario` SET `nombre_u`="+root;
         Statement st;
         try {
             st = cn.createStatement();

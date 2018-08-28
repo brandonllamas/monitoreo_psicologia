@@ -101,6 +101,7 @@ Connection cn=con.conect();
         obvserva = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -239,6 +240,14 @@ Connection cn=con.conect();
         jLabel13.setText("0");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 60, 40));
 
+        jButton3.setText("cerrar session");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 740, 760);
 
@@ -376,6 +385,13 @@ Connection cn=con.conect();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+          login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -441,6 +457,7 @@ Connection cn=con.conect();
     private javax.swing.JTextField grado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -7,6 +7,7 @@ package frames;
 
 import bd.conected;
 import clases.Sesion;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,14 +25,23 @@ import javax.swing.JOptionPane;
 public class Recup extends javax.swing.JFrame {
     conected con=new conected();
     Connection cn=con.conect();
-   
+   int numero;
     /**
      * Creates new form menu
      */
-    public Recup() {
+    public Recup()  throws HeadlessException  {
         initComponents();
         setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
     }
+    public Recup(int numero1,String correo){
+    initComponents();
+    setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());
+     numero=numero1;
+        System.out.println("numero1= "+numero1);
+        System.out.println("correo= "+correo);
+        System.out.println("numero= "+numero);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +56,7 @@ public class Recup extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -60,7 +71,12 @@ public class Recup extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        jButton3.setText("Cerrar session");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,23 +86,33 @@ public class Recup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3)))
+                .addGap(33, 33, 33)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -98,14 +124,34 @@ public class Recup extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         int num_text=Integer.parseInt(jTextField1.getText());
-        int codigo=numero();
+        int codigo=numero;
         if(num_text==codigo){
              restablecercontra();
-             restablecerusuario();
+                String sql="UPDATE `usuario` SET `nombre_u`=admin";
+        Statement st;
+        try {
+            st = cn.createStatement();
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(rootPane, "nombre restablecida");
+        } catch (SQLException ex) {
+            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
         eliminarnumero();
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "numero mal ingresado");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+      
+        
+        
+        
+        
+               
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,27 +188,12 @@ public class Recup extends javax.swing.JFrame {
             }
         });
     }
-private int numero(){
-int i=0;
-        try {
-            Statement a=cn.createStatement();
-            String query="SELECT  `num_al` FROM `recuperar`";
-            ResultSet ab=a.executeQuery(query);
-            while (ab.next()) {
-                i=ab.getInt("num_al");
-                
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Recup.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-return i;
-}
 private void eliminarnumero(){
 
         try {
             Statement a=cn.createStatement();
-            a.execute("DELETE FROM `recuperar` WHERE num_al="+numero());
+            a.execute("DELETE FROM `recuperar` WHERE num_al="+numero);
             
         } catch (SQLException ex) {
             Logger.getLogger(Recup.class.getName()).log(Level.SEVERE, null, ex);
@@ -182,23 +213,14 @@ private void restablecercontra(){
             Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-private void restablecerusuario(){
-  String sql="UPDATE `usuario` SET `nombre_u`=root";
-        Statement st;
-        try {
-            st = cn.createStatement();
-            st.executeUpdate(sql);
- 
-        } catch (SQLException ex) {
-            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }                
+              
 
     public void enviarDatos(String correo){
    
            try {
                Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
-               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","El usuario es : root  y la contraseñ: 12345");
+               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","El usuario es : root  y la contraseñ: 12345"
+                       + "");
                JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
            } catch (NoSuchProviderException ex) {
                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
@@ -210,6 +232,7 @@ private void restablecerusuario(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
