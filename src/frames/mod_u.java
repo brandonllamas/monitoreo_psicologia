@@ -277,7 +277,7 @@ public class mod_u extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         String root="root";
-          String sql="UPDATE `usuario` SET `nombre_u`="+root;
+          String sql="UPDATE `usuario` SET `nombre_u`='"+root+"'";
         Statement st;
         try {
             st = cn.createStatement();

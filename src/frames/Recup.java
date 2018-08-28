@@ -26,6 +26,7 @@ public class Recup extends javax.swing.JFrame {
     conected con=new conected();
     Connection cn=con.conect();
    int numero;
+   String correo;
     /**
      * Creates new form menu
      */
@@ -33,10 +34,11 @@ public class Recup extends javax.swing.JFrame {
         initComponents();
         setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
     }
-    public Recup(int numero1,String correo){
+    public Recup(int numero1,String correo1){
     initComponents();
     setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());
      numero=numero1;
+     correo=correo1;
         System.out.println("numero1= "+numero1);
         System.out.println("correo= "+correo);
         System.out.println("numero= "+numero);
@@ -127,12 +129,15 @@ public class Recup extends javax.swing.JFrame {
         int codigo=numero;
         if(num_text==codigo){
              restablecercontra();
-                String sql="UPDATE `usuario` SET `nombre_u`=admin";
+                String root="root";
+          String sql="UPDATE `usuario` SET `nombre_u`='"+root+"'";
         Statement st;
+        enviarDatos(correo);
         try {
             st = cn.createStatement();
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(rootPane, "nombre restablecida");
+            System.out.println("nombre restablecida");
+            
         } catch (SQLException ex) {
             Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
         }
