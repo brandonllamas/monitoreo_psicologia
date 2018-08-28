@@ -126,23 +126,17 @@ public class Recup extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         int num_text=Integer.parseInt(jTextField1.getText());
+         
         int codigo=numero;
         if(num_text==codigo){
-             restablecercontra();
-                String root="root";
-          String sql="UPDATE `usuario` SET `nombre_u`='"+root+"'";
-        Statement st;
-        enviarDatos(correo);
-        try {
-            st = cn.createStatement();
-            st.executeUpdate(sql);
-            System.out.println("nombre restablecida");
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+            String contraseñanueva=JOptionPane.showInputDialog("Ingresar nueva contraseña");
+            String usuarionueva=JOptionPane.showInputDialog("Ingresar nuevo usuario:");
+             restablecercontra(contraseñanueva);
+             restaurarusuario(usuarionueva);
         eliminarnumero();
+        login bran=new login();
+        bran.setVisible(true);
+        dispose();
         }else{
         JOptionPane.showMessageDialog(rootPane, "numero mal ingresado");
         }
@@ -205,10 +199,10 @@ private void eliminarnumero(){
         }
 
 }
-private void restablecercontra(){
+private void restablecercontra(String contraseña){
     
 
-       String sql="UPDATE `usuario` SET `contraseña_u`=12345";
+       String sql="UPDATE `usuario` SET `contraseña_u`='"+contraseña+"'";
         Statement st;
         try {
             st = cn.createStatement();
@@ -234,6 +228,20 @@ private void restablecercontra(){
     
     
     }
+    public void restaurarusuario(String root){
+           
+          String sql="UPDATE `usuario` SET `nombre_u`='"+root+"'";
+        Statement st;
+      
+        try {
+            st = cn.createStatement();
+            st.executeUpdate(sql);
+            System.out.println("nombre restablecida");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
