@@ -100,9 +100,8 @@ Connection cn=con.conect();
         jScrollPane3 = new javax.swing.JScrollPane();
         obvserva = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -124,7 +123,7 @@ Connection cn=con.conect();
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -137,7 +136,7 @@ Connection cn=con.conect();
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 89, 45));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("Nombre del estudiante:");
+        jLabel5.setText("Nombre del estudiante :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 140, 20));
         jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 220, -1));
 
@@ -166,7 +165,7 @@ Connection cn=con.conect();
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
         jPanel1.add(maestro_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 180, -1));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 480, 10));
 
@@ -229,31 +228,29 @@ Connection cn=con.conect();
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 690, -1));
 
-        jButton2.setText("Back");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 690, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 710, 120, 70));
 
-        jLabel13.setText("0");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 60, 40));
-
-        jButton3.setText("cerrar session");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logout.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 100, 70));
+
+        jLabel13.setText("0");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 60, 40));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 740, 760);
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(0, 0, 73, 23);
+        jPanel1.setBounds(0, 0, 740, 790);
 
         jMenu2.setText("Edit");
 
@@ -455,7 +452,6 @@ Connection cn=con.conect();
     private javax.swing.JTextArea apoyo;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField grado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

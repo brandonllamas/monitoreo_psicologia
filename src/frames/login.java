@@ -112,7 +112,7 @@ public class login extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/user.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 130, 140));
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 204));
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jButton2.setText("¿ Se te ha olvidado la contraseña?");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -155,11 +155,11 @@ public class login extends javax.swing.JFrame {
                 ResultSet rs=pst.executeQuery();
                 char[] c=jPasswordField1.getPassword();
                 String pas=new String(c);
-                int pass=Integer.parseInt(pas);
+                int pass=pas.length();
 
                 while(rs.next()){
                     String a=rs.getString("nombre_u");
-                    int b=Integer.parseInt(rs.getString("contraseña_u"));
+                    int b=(rs.getString("contraseña_u")).length();
                     System.out.println(pass);
                     if(b==pass){
                         JOptionPane.showMessageDialog(rootPane,"Ingreso exitoso ");
@@ -265,7 +265,7 @@ public class login extends javax.swing.JFrame {
     }
     public void consulta(int i){
            try {
-               PreparedStatement c=cn.prepareStatement("INSERT INTO `recuperar`( `num_al`) VALUES (?)");
+               PreparedStatement c=cn.prepareStatement("INSERT INTO `recuperar`(`num_al`) VALUES (?)");
                c.setInt(1,i);
                c.execute();
            } catch (SQLException ex) {
