@@ -114,7 +114,8 @@ public class login extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(51, 204, 255));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
-        jButton2.setText("¿ Se te ha olvidado la contraseña?");
+        jButton2.setText("¿Olvidaste la contraseña?");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
