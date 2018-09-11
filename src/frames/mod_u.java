@@ -138,13 +138,15 @@ public class mod_u extends javax.swing.JFrame {
         jPanel4.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 123, 116, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("x");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel-button.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 122, 58, -1));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 122, 58, 30));
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Cambiar");
