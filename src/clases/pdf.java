@@ -48,7 +48,7 @@ public class pdf {
         String query="SELECT * FROM seguimiento";
         ResultSet rs=a.executeQuery(query);
         
-          try (OutputStream file = new FileOutputStream(new File(nombrea+".pdf"))) {
+          try (OutputStream file = new FileOutputStream(new File("pdf://"+nombrea+".pdf"))) {
               Document document = new Document();
               PdfWriter.getInstance(document, file);
               document.open();
@@ -92,7 +92,7 @@ public class pdf {
           } 
                try{
           File faile;
-      faile = new File(nombrea+".pdf");
+      faile = new File("pdf://"+nombrea+".pdf");
           Desktop.getDesktop().open(faile);
        }   
       catch (Exception e){
