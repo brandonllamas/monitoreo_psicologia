@@ -133,7 +133,7 @@ Connection cn=con.conect();
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 10, 150));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 540, -1));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 580, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -219,7 +219,7 @@ Connection cn=con.conect();
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 710, 120, 70));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logout.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -146,8 +146,8 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/refresh-button.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="autoscrolls" type="boolean" value="true"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusCycleRoot" type="boolean" value="true"/>
             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
@@ -167,10 +167,9 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/remove.png"/>
+              <Image iconType="3" name="/iconos/icon.png"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -185,9 +184,11 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/icon.png"/>
+              <Image iconType="3" name="/iconos/add-button-inside-black-circle.png"/>
             </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -195,7 +196,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="850" y="620" width="100" height="65"/>
+              <AbsoluteConstraints x="810" y="620" width="100" height="65"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -217,7 +218,6 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/pencil.png"/>
             </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -225,7 +225,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="620" width="116" height="-1"/>
+              <AbsoluteConstraints x="660" y="620" width="116" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -259,7 +259,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="580" y="170" width="120" height="39"/>
+              <AbsoluteConstraints x="600" y="170" width="120" height="39"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -305,14 +305,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="pdf"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/google-drive-pdf-file (1).png"/>
+            </Property>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="480" y="630" width="110" height="50"/>
+              <AbsoluteConstraints x="500" y="620" width="120" height="70"/>
             </Constraint>
           </Constraints>
         </Component>

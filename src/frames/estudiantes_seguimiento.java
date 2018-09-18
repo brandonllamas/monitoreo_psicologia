@@ -61,7 +61,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         text = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -110,8 +110,8 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 971, 357));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/refresh-button.png"))); // NOI18N
+        jButton1.setToolTipText("");
         jButton1.setAutoscrolls(true);
-        jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusCycleRoot(true);
         jButton1.setFocusTraversalPolicyProvider(true);
@@ -125,9 +125,8 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 78, 65));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/remove.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon.png"))); // NOI18N
         jButton2.setAutoscrolls(true);
-        jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,29 +135,28 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 87, 65));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add-button-inside-black-circle.png"))); // NOI18N
+        jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 100, 65));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 620, 100, 65));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pnj.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 368, 251));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 116, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 116, -1));
 
         jButton5.setText("Buscar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -168,13 +166,13 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 91, 35));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nombre estudiante", "grado" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 120, 39));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 120, 39));
         jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 130, 38));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/save.png"))); // NOI18N
@@ -196,13 +194,14 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 110, 70));
 
-        jButton8.setText("pdf");
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/google-drive-pdf-file (1).png"))); // NOI18N
+        jButton8.setContentAreaFilled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 630, 110, 50));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 120, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 690));
