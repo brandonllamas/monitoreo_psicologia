@@ -164,7 +164,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 91, 35));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 35));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {

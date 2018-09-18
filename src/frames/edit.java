@@ -114,7 +114,7 @@ Connection cn=con.conect();
         jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(740, 741));
+        setMinimumSize(new java.awt.Dimension(742, 797));
         setPreferredSize(new java.awt.Dimension(746, 795));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -123,6 +123,7 @@ Connection cn=con.conect();
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre del estudiante :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 140, 20));
         jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 220, -1));
@@ -140,6 +141,7 @@ Connection cn=con.conect();
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 30, 150));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Maestro Acompañante actual:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
@@ -147,17 +149,20 @@ Connection cn=con.conect();
         jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 180, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Maestro Acompañante anterior:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
         jPanel1.add(maestro_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 180, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
         jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 120, -1));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 170, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Grado:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
 
@@ -170,8 +175,9 @@ Connection cn=con.conect();
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Antiguedad del estudiante");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, -1));
 
         antiguedad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -181,6 +187,7 @@ Connection cn=con.conect();
         jPanel1.add(antiguedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 110, 40));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Motivo  Remisión:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
@@ -191,6 +198,7 @@ Connection cn=con.conect();
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 690, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Seguimiento y apoyo realizado:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
 
@@ -201,6 +209,7 @@ Connection cn=con.conect();
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 700, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Observaciones importantes:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 

@@ -134,8 +134,8 @@ public class mod_u extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Nombre nuevo:");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 117, 100, 32));
-        jPanel4.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 123, 116, -1));
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 100, 32));
+        jPanel4.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 116, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel-button.png"))); // NOI18N
@@ -146,7 +146,7 @@ public class mod_u extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 122, 58, 30));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 58, 30));
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Cambiar");
