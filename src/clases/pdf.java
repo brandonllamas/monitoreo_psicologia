@@ -33,7 +33,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 
@@ -42,13 +44,15 @@ import javax.swing.JOptionPane;
 public class pdf {
       conected con=new conected();
     Connection cn=con.conect();
+    private File ruta_destino=null;
     
-    public void pdfTabla(String nombrea) throws SQLException, DocumentException, IOException{
+    public void pdfTabla() throws SQLException, DocumentException, IOException{
+        Colocar_Destino();
   Statement a=cn.createStatement();
         String query="SELECT * FROM seguimiento";
         ResultSet rs=a.executeQuery(query);
         
-          try (OutputStream file = new FileOutputStream(new File("pdf//"+nombrea+".pdf"))) {
+          try (OutputStream file = new FileOutputStream(new File(this.ruta_destino+".pdf"))) {
               Document document = new Document();
               PdfWriter.getInstance(document, file);
               document.open();
@@ -92,13 +96,22 @@ public class pdf {
           } 
                try{
           File faile;
-      faile = new File("pdf//"+nombrea+".pdf");
+      faile = new File(this.ruta_destino+".pdf");
           Desktop.getDesktop().open(faile);
        }   
       catch (Exception e){
         e.printStackTrace();
          }
     }
+     public void Colocar_Destino(){
+       FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo PDF","pdf","PDF");
+       JFileChooser fileChooser = new JFileChooser();       
+       fileChooser.setFileFilter(filter);
+       int result = fileChooser.showSaveDialog(null);
+       if ( result == JFileChooser.APPROVE_OPTION ){   
+           this.ruta_destino = fileChooser.getSelectedFile().getAbsoluteFile();
+        }
+    }    
 }
     
     

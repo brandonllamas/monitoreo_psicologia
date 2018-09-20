@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package frames;
+import Animacion.*;
 
 import bd.conected;
 import clases.pdf;
@@ -147,7 +148,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pnj.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 368, 251));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 368, 251));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
@@ -158,13 +159,14 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 116, -1));
 
-        jButton5.setText("Buscar");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/filter-tool-black-shape.png"))); // NOI18N
+        jButton5.setContentAreaFilled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 35));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 90, 70));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -172,8 +174,8 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 120, 39));
-        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 130, 38));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 120, 39));
+        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 130, 38));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/save.png"))); // NOI18N
         jButton6.setContentAreaFilled(false);
@@ -208,7 +210,11 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
         jMenu1.setText("opciones");
 
-        jMenuItem1.setText("modificar usuario");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/settings.png"))); // NOI18N
+        jMenuItem1.setText("Ajustes de Usuario");
+        jMenuItem1.setBorder(null);
+        jMenuItem1.setBorderPainted(true);
+        jMenuItem1.setContentAreaFilled(false);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -381,6 +387,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+  
           login a=new login();
         a.setVisible(true);
         dispose();
@@ -388,10 +395,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-         String nombrea=JOptionPane.showInputDialog("Ingresar nombre del archivo");
+         
       pdf tab=new pdf();
         try {
-            tab.pdfTabla(nombrea);
+            tab.pdfTabla();
         } catch (SQLException ex) {
             Logger.getLogger(estudiantes_seguimiento.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
