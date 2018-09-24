@@ -68,11 +68,14 @@ public class Recup extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Ingrese el codigo de recuperación");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 182, 43));
+        jLabel1.setText("Ingrese el código de recuperación:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 30, 220, 43));
 
         jButton2.setText("Recuperar");
+        jButton2.setToolTipText("Recuperar contraseña");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -80,6 +83,7 @@ public class Recup extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 132, -1, -1));
 
+        jTextField1.setToolTipText("Ingrese código de recuperación");
         jTextField1.setBorder(null);
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -89,6 +93,7 @@ public class Recup extends javax.swing.JFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 240, 30));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/exit.png"))); // NOI18N
+        jButton3.setToolTipText("Volver a menú de inicio");
         jButton3.setContentAreaFilled(false);
         jButton3.setDefaultCapable(false);
         jButton3.setFocusPainted(false);

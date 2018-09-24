@@ -34,20 +34,27 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ingrese el codigo de recuperaci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Ingrese el c&#xf3;digo de recuperaci&#xf3;n:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="90" y="40" width="182" height="43"/>
+          <AbsoluteConstraints x="62" y="30" width="220" height="43"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Recuperar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Recuperar contrase&#xf1;a"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Mano"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -60,6 +67,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Ingrese c&#xf3;digo de recuperaci&#xf3;n"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -78,6 +86,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/iconos/exit.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Volver a men&#xfa; de inicio"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="defaultCapable" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>

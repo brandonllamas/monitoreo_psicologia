@@ -123,6 +123,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="nombre_e">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese nombre de estudiante"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="300" y="100" width="220" height="-1"/>
@@ -199,6 +202,7 @@
         <Component class="javax.swing.JTextField" name="maetro_actual">
           <Properties>
             <Property name="text" type="java.lang.String" value=" "/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese nombre de maestro acompa&#xf1;ante actual"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -223,6 +227,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="maestro_anterior">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese nombre de maestro acompa&#xf1;ante anterior"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="350" y="180" width="180" height="-1"/>
@@ -246,6 +253,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="fecha">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese fecha actual"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="580" y="100" width="120" height="-1"/>
@@ -276,6 +286,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="grado">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese grado "/>
+          </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="gradoKeyTyped"/>
           </Events>
@@ -300,7 +313,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Antiguedad del estudiante"/>
+            <Property name="text" type="java.lang.String" value="Antiguedad del estudiante:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -309,6 +322,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="antiguedad">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Nuemro de a&#xf1;os del estudiante en la instituci&#xf3;n"/>
+          </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="antiguedadKeyTyped"/>
           </Events>
@@ -350,6 +366,7 @@
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="toolTipText" type="java.lang.String" value="Motivo por el cual fue remitido el estudiante"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -386,6 +403,7 @@
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="toolTipText" type="java.lang.String" value="Seguimiento y apoyo realizado"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -422,6 +440,7 @@
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="toolTipText" type="java.lang.String" value="Observaciones importantes"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -431,7 +450,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/reply.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Volver a tabla de seguimiento "/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -447,7 +470,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/2exit.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Volver a men&#xfa; principal"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>

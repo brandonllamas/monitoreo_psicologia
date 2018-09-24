@@ -74,8 +74,10 @@ public class login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/LOGIN.png"))); // NOI18N
+        jButton1.setToolTipText("Ingresar");
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setMaximumSize(new java.awt.Dimension(100, 23));
         jButton1.setMinimumSize(new java.awt.Dimension(200, 23));
         jButton1.setPreferredSize(new java.awt.Dimension(100, 23));
@@ -86,10 +88,11 @@ public class login extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 160, 40));
 
+        jPasswordField1.setToolTipText("Contraseña");
         jPasswordField1.setBorder(null);
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, 30));
 
-        jTextField1.setToolTipText("Username");
+        jTextField1.setToolTipText("Nombre de usuario");
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,9 +116,11 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 130, 140));
 
         jButton2.setBackground(new java.awt.Color(51, 204, 255));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("¿Olvidaste la contraseña?");
+        jButton2.setToolTipText("Recuperar contraseña");
         jButton2.setBorder(null);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

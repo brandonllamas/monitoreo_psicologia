@@ -69,12 +69,16 @@ public class mod_u extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Contraseña uneva:");
+        jLabel2.setText("Contraseña nueva:");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 120, 33));
+
+        con_n.setToolTipText("Ingresar la nueva contraseña");
         jPanel3.add(con_n, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 144, 132, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Cambiar");
+        jButton1.setToolTipText("Cambiar contraseña");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -84,6 +88,8 @@ public class mod_u extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Restaurar");
+        jButton3.setToolTipText("Restaurar contraseña de fabrica");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -93,8 +99,10 @@ public class mod_u extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel-button.png"))); // NOI18N
+        jButton4.setToolTipText("Eliminar");
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -103,6 +111,7 @@ public class mod_u extends javax.swing.JFrame {
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 40, 30));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton7.setToolTipText("Volver a tabla");
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -135,10 +144,13 @@ public class mod_u extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Nombre nuevo:");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 100, 32));
+
+        nombre.setToolTipText("Nuevo nombre de usuario");
         jPanel4.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 116, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel-button.png"))); // NOI18N
+        jButton2.setToolTipText("Eliminar");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -148,8 +160,9 @@ public class mod_u extends javax.swing.JFrame {
         });
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 58, 30));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Cambiar");
+        jButton5.setToolTipText("Cambiar nombre de usuario");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -159,6 +172,7 @@ public class mod_u extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setText("Restaurar");
+        jButton6.setToolTipText("Restaurar nombre de usuario ");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -167,6 +181,7 @@ public class mod_u extends javax.swing.JFrame {
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton8.setToolTipText("Volver a tabla");
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {

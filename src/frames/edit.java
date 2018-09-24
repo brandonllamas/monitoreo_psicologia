@@ -126,6 +126,8 @@ Connection cn=con.conect();
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre del estudiante :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 140, 20));
+
+        nombre_e.setToolTipText("Ingrese nombre de estudiante");
         jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 220, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -146,18 +148,23 @@ Connection cn=con.conect();
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         maetro_actual.setText(" ");
+        maetro_actual.setToolTipText("Ingrese nombre de maestro acompañante actual");
         jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 180, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Maestro Acompañante anterior:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+
+        maestro_anterior.setToolTipText("Ingrese nombre de maestro acompañante anterior");
         jPanel1.add(maestro_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 180, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
+
+        fecha.setToolTipText("Ingrese fecha actual");
         jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 120, -1));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 170, 10));
 
@@ -166,6 +173,7 @@ Connection cn=con.conect();
         jLabel8.setText("Grado:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
 
+        grado.setToolTipText("Ingrese grado ");
         grado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 gradoKeyTyped(evt);
@@ -176,9 +184,10 @@ Connection cn=con.conect();
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Antiguedad del estudiante");
+        jLabel9.setText("Antiguedad del estudiante:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, -1));
 
+        antiguedad.setToolTipText("Nuemro de años del estudiante en la institución");
         antiguedad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 antiguedadKeyTyped(evt);
@@ -193,6 +202,7 @@ Connection cn=con.conect();
 
         remision.setColumns(20);
         remision.setRows(5);
+        remision.setToolTipText("Motivo por el cual fue remitido el estudiante");
         jScrollPane1.setViewportView(remision);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 690, -1));
@@ -204,6 +214,7 @@ Connection cn=con.conect();
 
         apoyo.setColumns(20);
         apoyo.setRows(5);
+        apoyo.setToolTipText("Seguimiento y apoyo realizado");
         jScrollPane2.setViewportView(apoyo);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 700, -1));
@@ -215,12 +226,15 @@ Connection cn=con.conect();
 
         obvserva.setColumns(20);
         obvserva.setRows(5);
+        obvserva.setToolTipText("Observaciones importantes");
         jScrollPane3.setViewportView(obvserva);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 690, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton2.setToolTipText("Volver a tabla de seguimiento ");
         jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -229,7 +243,9 @@ Connection cn=con.conect();
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 710, 120, 70));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton3.setToolTipText("Volver a menú principal");
         jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

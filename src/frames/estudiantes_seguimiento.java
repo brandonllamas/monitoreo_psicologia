@@ -101,6 +101,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setToolTipText("Seguimientos actuales");
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -111,9 +112,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 971, 357));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/refresh-button.png"))); // NOI18N
-        jButton1.setToolTipText("");
+        jButton1.setToolTipText("Actualizar tabla");
         jButton1.setAutoscrolls(true);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusCycleRoot(true);
         jButton1.setFocusTraversalPolicyProvider(true);
         jButton1.setHideActionText(true);
@@ -127,8 +129,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 78, 65));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon.png"))); // NOI18N
+        jButton2.setToolTipText("Eliminar registro de la tabla");
         jButton2.setAutoscrolls(true);
         jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -137,8 +141,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 87, 65));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add-button-inside-black-circle.png"))); // NOI18N
+        jButton3.setToolTipText("Agregar nuevo seguimiento");
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -151,7 +157,9 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 368, 251));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
+        jButton4.setToolTipText("Editar seguimiento");
         jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -160,7 +168,9 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 116, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/filter-tool-black-shape.png"))); // NOI18N
+        jButton5.setToolTipText("Filtrar");
         jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -168,17 +178,25 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 90, 70));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre estudiante", "grado" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre estudiante", "Grado" }));
+        jComboBox1.setToolTipText("Dato a filtrar ");
+        jComboBox1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 120, 39));
-        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 130, 38));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 140, 30));
+
+        text.setToolTipText("Ingresar dato a filtrar ");
+        text.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, 130, 30));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/save.png"))); // NOI18N
+        jButton6.setToolTipText("Guardar cambio de tabla");
         jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -187,8 +205,10 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 620, 110, 70));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton7.setToolTipText("Volver al menú de inicio");
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -197,7 +217,9 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 110, 70));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/google-drive-pdf-file (1).png"))); // NOI18N
+        jButton8.setToolTipText("Crear archivo pdf de tabla de seguimiento");
         jButton8.setContentAreaFilled(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -212,6 +234,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/settings.png"))); // NOI18N
         jMenuItem1.setText("Ajustes de Usuario");
+        jMenuItem1.setToolTipText("Cambiar nombre y contraseña de usuario");
         jMenuItem1.setBorder(null);
         jMenuItem1.setBorderPainted(true);
         jMenuItem1.setContentAreaFilled(false);
