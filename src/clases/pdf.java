@@ -112,6 +112,62 @@ public class pdf {
            this.ruta_destino = fileChooser.getSelectedFile().getAbsoluteFile();
         }
     }    
+     
+     public void PdfArchivo(int id) throws SQLException{
+     Colocar_Destino();
+  Statement a=cn.createStatement();
+        String query="SELECT * FROM seguimiento where id="+id;
+        ResultSet rs=a.executeQuery(query);
+        
+          try (OutputStream file = new FileOutputStream(new File(this.ruta_destino+".pdf"))) {
+              Document document = new Document();
+              PdfWriter.getInstance(document, file);
+              document.open();
+            
+              Paragraph p = new Paragraph("Seguimiento Estudiantil\n\n", FontFactory.getFont("Arial",16,Font.ITALIC,BaseColor.BLACK));
+              
+              p.setAlignment(Element.ALIGN_CENTER);
+              document.add(p);
+              
+              document.add(new Paragraph(""));
+              while (rs.next()) {
+                  int i;
+                  document.add(new Paragraph("Id:", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("id"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Nombre Estudiante", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("nombre_e"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Maestro Acompañante Actual", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("maetro_acomp_actual"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Maestro Acompañante Anterior", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("maestro_acomp_anterior"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Fecha", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("fecha"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Grado:", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("grado"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Motivo de remision :", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("motivo_rem"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Apoyo del Maestro:", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("seguimiento_apoyo"), FontFactory.getFont("Arial",10)));
+                  document.add(new Paragraph("Observaciones importante:", FontFactory.getFont("Arial",12,Font.BOLD)));
+                  document.add(new Paragraph(rs.getString("observaciones_impor"), FontFactory.getFont("Arial",10)));
+                  
+                  
+                  
+              }
+
+              document.close();
+          }catch(Exception e){
+              JOptionPane.showMessageDialog(null,"El arcivo ya existe");
+          } 
+               try{
+          File faile;
+      faile = new File(this.ruta_destino+".pdf");
+          Desktop.getDesktop().open(faile);
+       }   
+      catch (Exception e){
+        e.printStackTrace();
+         }
+     }
 }
     
     

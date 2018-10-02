@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package frames;
-import Animacion.*;
 
 import bd.conected;
 import clases.pdf;
@@ -18,8 +17,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 

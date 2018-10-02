@@ -6,6 +6,7 @@
 package frames;
 
 import bd.conected;
+import clases.pdf;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,6 +27,7 @@ import javax.swing.JOptionPane;
 public class edit extends javax.swing.JFrame {
 conected con=new conected ();
 Connection cn=con.conect();
+int id3;
     /**
      * Creates new form edit
 
@@ -40,7 +42,7 @@ Connection cn=con.conect();
         initComponents();
         System.out.println(id2);
         jLabel13.setText(String.valueOf(id2));
-        
+        id3=id2;
         if(id2==0){
      
         
@@ -102,6 +104,7 @@ Connection cn=con.conect();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -280,6 +283,14 @@ Connection cn=con.conect();
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setText("Pdf");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -399,6 +410,16 @@ Connection cn=con.conect();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        pdf pd= new  pdf();
+    try {
+        pd.PdfArchivo(id3);
+    } catch (SQLException ex) {
+        Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -483,6 +504,7 @@ Connection cn=con.conect();
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
