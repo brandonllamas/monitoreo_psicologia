@@ -6,6 +6,7 @@
 package frames;
 
 import bd.conected;
+import clases.Sesion;
 import clases.pdf;
 import com.itextpdf.text.DocumentException;
 import java.io.IOException;
@@ -16,9 +17,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.NoSuchProviderException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
+import testsuite.Statements;
 
 /**
  *
@@ -64,6 +68,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -147,7 +152,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 620, 100, 65));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 100, 65));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pnj.png"))); // NOI18N
@@ -162,7 +167,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 116, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 116, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/filter-tool-black-shape.png"))); // NOI18N
         jButton5.setToolTipText("Filtrar");
@@ -199,7 +204,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 620, 110, 70));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 620, 110, 70));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
         jButton7.setToolTipText("Volver al menú de inicio");
@@ -222,7 +227,15 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 120, 70));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 120, 70));
+
+        jButton9.setText("Enviar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 630, 130, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 690));
@@ -429,6 +442,22 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+          conectmail();
+        String correo=JOptionPane.showInputDialog("Ingresar correo");
+                int i=jTable1.getSelectedRow();
+        int id = (int) mode.getValueAt(i, 0);
+       pdf lol=new pdf();
+        try {
+            lol.PdfArchivo(id);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(estudiantes_seguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -504,6 +533,7 @@ mode.removeRow(i );
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -519,4 +549,30 @@ mode.removeRow(i );
     private String toString(Object valueAt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+     public  void conectmail(){
+    
+        Sesion s;
+           try {
+               System.out.println("correo conectado");
+               s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("Correo no conectado");
+           }
+    
+    }
+         public void enviarDatos(String correo){
+
+           try {
+               Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
+               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","Archivo mandado:");
+               JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    
+    
+    
+    }
+     
 }

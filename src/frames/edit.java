@@ -177,6 +177,11 @@ int id3;
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
 
         grado.setToolTipText("Ingrese grado ");
+        grado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradoActionPerformed(evt);
+            }
+        });
         grado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 gradoKeyTyped(evt);
@@ -419,6 +424,10 @@ int id3;
         Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void gradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gradoActionPerformed
 
     /**
      * @param args the command line arguments

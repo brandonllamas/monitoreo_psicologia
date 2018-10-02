@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import java.text.ParseException;
 import com.alee.global.GlobalConstants;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 import javax.mail.NoSuchProviderException;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -97,6 +98,11 @@ public class login extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 210, 30));
@@ -197,12 +203,38 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         conectmail();
         String correo=JOptionPane.showInputDialog("Ingresar correo");
-        enviarDatos(correo);
+        int wa=correo.length();
+        if(correo.contains("@")){
+            if(correo.contains(".com")){
+    enviarDatos(correo);
+        
+     
         int sa=numero;
-        Recup a=new Recup(sa,correo);
+        Recup a;
+            a = new Recup(sa,correo);
         a.setVisible(true);
         dispose();
+            }else{
+        JOptionPane.showMessageDialog(rootPane, "correo incorrecto");
+            }
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "correo incorrecto");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+             char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+                           
+          } else{
+           getToolkit().beep(); 
+               
+              evt.consume(); 
+            JOptionPane.showMessageDialog(null,"No puede ingresar Numeros!!!","Ventana Error Datos",JOptionPane.ERROR_MESSAGE); }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments

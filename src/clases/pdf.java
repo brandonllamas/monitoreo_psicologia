@@ -45,7 +45,12 @@ public class pdf {
       conected con=new conected();
     Connection cn=con.conect();
     private File ruta_destino=null;
-    
+String ruta;
+
+    public File getRuta_destino() {
+        return ruta_destino;
+    }
+
     public void pdfTabla() throws SQLException, DocumentException, IOException{
         Colocar_Destino();
   Statement a=cn.createStatement();
