@@ -117,9 +117,9 @@ int id3;
         jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(742, 797));
-        setPreferredSize(new java.awt.Dimension(746, 795));
-        setResizable(false);
+        setLocation(new java.awt.Point(0, 0));
+        setMinimumSize(new java.awt.Dimension(760, 840));
+        setPreferredSize(new java.awt.Dimension(760, 840));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));

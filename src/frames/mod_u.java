@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +29,7 @@ public class mod_u extends javax.swing.JFrame {
      */
     public mod_u() {
         initComponents();
+                        setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
     }
 
     /**
@@ -146,6 +148,11 @@ public class mod_u extends javax.swing.JFrame {
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 100, 32));
 
         nombre.setToolTipText("Nuevo nombre de usuario");
+        nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreKeyTyped(evt);
+            }
+        });
         jPanel4.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 116, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -334,6 +341,10 @@ public class mod_u extends javax.swing.JFrame {
               Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
           }
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreKeyTyped
 
     /**
      * @param args the command line arguments
