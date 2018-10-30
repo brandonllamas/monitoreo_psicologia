@@ -99,6 +99,7 @@ int id3;
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -263,6 +264,15 @@ int id3;
 
         jLabel13.setText("0");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 60, 40));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/loupe.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 80, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo edit.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 780));
@@ -429,6 +439,32 @@ int id3;
         // TODO add your handling code here:
     }//GEN-LAST:event_gradoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    try {
+        // TODO add your handling code here:
+        maestro_anterior.setText("");
+        maetro_actual.setText("");
+        grado.setText("");
+        antiguedad.setText("");
+        String nombre=nombre_e.getText();
+   
+        Statement st=cn.createStatement();
+        ResultSet rs=st.executeQuery("SELECT * FROM `seguimiento` WHERE nombre_e = \""+nombre+"\"");
+        while(rs.next()){
+            maestro_anterior.setText(rs.getString("maestro_acomp_anterior"));
+            maetro_actual.setText(rs.getString("maetro_acomp_actual"));
+            grado.setText(rs.getString("grado"));
+            antiguedad.setText(rs.getString("antiguedad_estudiante"));
+            
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println(ex);
+    }
+        
+ 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -492,6 +528,7 @@ int id3;
     private javax.swing.JTextArea apoyo;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField grado;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
