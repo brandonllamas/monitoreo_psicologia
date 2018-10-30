@@ -1,0 +1,1 @@
+java -jar monitoreo_psicologa.jar

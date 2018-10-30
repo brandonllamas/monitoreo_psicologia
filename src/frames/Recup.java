@@ -8,12 +8,16 @@ package frames;
 import bd.conected;
 import clases.Sesion;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.mail.NoSuchProviderException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -32,7 +36,13 @@ public class Recup extends javax.swing.JFrame {
      */
     public Recup()  throws HeadlessException  {
         initComponents();
-        setIconImage (new ImageIcon(getClass().getResource("../imagenes/pnj.png")).getImage());//cambiar imagen de icono
+        try {
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        this.setTitle("PSYCHORED");
     }
     public Recup(int numero1,String correo1){
     initComponents();
