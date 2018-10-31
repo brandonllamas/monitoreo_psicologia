@@ -105,6 +105,11 @@ public class login extends javax.swing.JFrame {
 
         jPasswordField1.setToolTipText("Contraseña");
         jPasswordField1.setBorder(null);
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyTyped(evt);
+            }
+        });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, 30));
 
         jTextField1.setToolTipText("Nombre de usuario");
@@ -277,6 +282,19 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
        jPasswordField1.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
+        // TODO add your handling code here:
+                    char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isLetter(c)) { 
+                                getToolkit().beep(); 
+               
+              evt.consume(); 
+            JOptionPane.showMessageDialog(null,"No puede ingresar letras !!!","Ventana Error Datos",JOptionPane.ERROR_MESSAGE);     
+          } 
+    }//GEN-LAST:event_jPasswordField1KeyTyped
 
     /**
      * @param args the command line arguments

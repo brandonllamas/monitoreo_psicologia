@@ -92,7 +92,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="7" rowCount="0">
-                    <Column editable="false" title="Id" type="java.lang.Integer"/>
+                    <Column editable="false" title="T.I" type="java.lang.Integer"/>
                     <Column editable="true" title="Nombre estudiante" type="java.lang.String"/>
                     <Column editable="true" title="Maestro acompa&#xf1;ante actual" type="java.lang.String"/>
                     <Column editable="true" title="Maetro acompa&#xf1;ante anterior" type="java.lang.String"/>

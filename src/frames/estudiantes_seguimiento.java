@@ -92,7 +92,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nombre estudiante", "Maestro acompañante actual", "Maetro acompañante anterior", "Fecha", "Grado", "Antiguedad del estudiante "
+                "T.I", "Nombre estudiante", "Maestro acompañante actual", "Maetro acompañante anterior", "Fecha", "Grado", "Antiguedad del estudiante "
             }
         ) {
             Class[] types = new Class [] {
@@ -487,7 +487,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         while (rs.next()) {
             int i;
             mode.addRow( new Object[]{
-            rs.getInt("id"),
+            rs.getInt("TI"),
             rs.getString("nombre_e"),
             rs.getString("maetro_acomp_actual"),
             rs.getString("maestro_acomp_anterior"),
