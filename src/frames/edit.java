@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -32,6 +33,7 @@ public class edit extends javax.swing.JFrame {
 conected con=new conected ();
 Connection cn=con.conect();
 int id3;
+
     /**
      * Creates new form edit
 
@@ -46,6 +48,8 @@ int id3;
                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
            }
         this.setTitle("PSYCHORED");
+        jMenuItem6.setVisible(false);
+       
     }
 
     public edit(int id2) throws SQLException {
@@ -53,12 +57,13 @@ int id3;
         System.out.println(id2);
         jLabel13.setText(String.valueOf(id2));
         id3=id2;
+        jMenuItem6.setVisible(true);
         if(id2==0){
      
         
         }else{
             cargar(id2);
-            
+          
         }
     }
 
@@ -118,6 +123,7 @@ int id3;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -141,17 +147,17 @@ int id3;
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre del estudiante :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 140, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 140, 20));
 
         nombre_e.setToolTipText("Ingrese nombre de estudiante");
-        jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 220, -1));
+        jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 180, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 10, 150));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 560, 10));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 590, 10));
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 10, 150));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 10, 150));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 580, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
@@ -165,7 +171,7 @@ int id3;
 
         maetro_actual.setText(" ");
         maetro_actual.setToolTipText("Ingrese nombre de maestro acompañante actual");
-        jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 180, -1));
+        jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,7 +187,7 @@ int id3;
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
 
         fecha.setToolTipText("Ingrese fecha actual");
-        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 120, -1));
+        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 70, -1));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 170, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -289,14 +295,14 @@ int id3;
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tarjeta de Identidad:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 150, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 20));
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 120, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo edit.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 780));
@@ -306,7 +312,7 @@ int id3;
 
         jMenu2.setText("Edit");
 
-        jMenuItem2.setText("guardar");
+        jMenuItem2.setText("Guardar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -314,7 +320,7 @@ int id3;
         });
         jMenu2.add(jMenuItem2);
 
-        jMenuItem3.setText("nuevo");
+        jMenuItem3.setText("Nuevo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -330,6 +336,14 @@ int id3;
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem6.setText("Ver seguimiento");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -340,6 +354,9 @@ int id3;
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         int id=Integer.parseInt(jLabel13.getText());
+        String keyns=fecha.getText();
+        if(keyns.contains("-")){
+        
         if(id==0){
             try {
                 PreparedStatement psr=cn.prepareStatement("INSERT INTO `seguimiento`( `nombre_e`, `maetro_acomp_actual`, `maestro_acomp_anterior`, `fecha`, `grado`, `antiguedad_estudiante`, `motivo_rem`, `seguimiento_apoyo`, `observaciones_impor`, `TI`) VALUES (?,?,?,?,?,?,?,?,?,?)");
@@ -352,7 +369,7 @@ int id3;
             psr.setString(7,remision.getText());
             psr.setString(8,apoyo.getText());
             psr.setString(9,obvserva.getText());
-            psr.setInt(id, id);
+            psr.setInt(10,Integer.parseInt(jTextField1.getText()));
             
             psr.executeUpdate();
             estudiantes_seguimiento a=new estudiantes_seguimiento();
@@ -377,7 +394,8 @@ int id3;
             psr.setString(7,remision.getText());
             psr.setString(8,apoyo.getText());
             psr.setString(9,obvserva.getText());
-            psr.setInt(10, id);
+             psr.setInt(10,Integer.parseInt(jTextField1.getText()));
+            
             psr.executeUpdate();
             estudiantes_seguimiento a=new estudiantes_seguimiento();
             a.setVisible(true);
@@ -387,7 +405,9 @@ int id3;
                 Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
             }
         
-        }
+        }}else{
+    JOptionPane.showMessageDialog(rootPane,"Formato de fecha no aceptada<br> formato: DAY-MONTH-YEAR");
+    }
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -465,17 +485,19 @@ int id3;
     }//GEN-LAST:event_gradoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
+    
+        try {
         // TODO add your handling code here:
         maestro_anterior.setText("");
         maetro_actual.setText("");
         grado.setText("");
         antiguedad.setText("");
-        String nombre=nombre_e.getText();
+        String nombre=jTextField1.getText();
    
         Statement st=cn.createStatement();
-        ResultSet rs=st.executeQuery("SELECT * FROM `seguimiento` WHERE nombre_e = \""+nombre+"\"");
+        ResultSet rs=st.executeQuery("SELECT * FROM `seguimiento` WHERE TI = \""+nombre+"\"");
         while(rs.next()){
+            nombre_e.setText(rs.getString("nombre_e"));
             maestro_anterior.setText(rs.getString("maestro_acomp_anterior"));
             maetro_actual.setText(rs.getString("maetro_acomp_actual"));
             grado.setText(rs.getString("grado"));
@@ -503,6 +525,22 @@ int id3;
           } 
   
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        int ti=Integer.parseInt(jTextField1.getText());
+        String name=nombre_e.getText();
+        System.out.println(id3);
+        seguimiento a;
+    try {
+        a = new seguimiento(ti,name);
+         a.setVisible(true);
+        dispose();
+    } catch (SQLException ex) {
+        Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
+    }
+       
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -548,6 +586,7 @@ int id3;
         Statement st=cn.createStatement();
         ResultSet rs=st.executeQuery("SELECT * FROM seguimiento WHERE id="+id);
            while (rs.next()) {
+               jTextField1.setText(Integer.toString(rs.getInt("TI")));
                nombre_e.setText(rs.getString("nombre_e"));
                fecha.setText(rs.getString("fecha"));
                maestro_anterior.setText(rs.getString("maestro_acomp_anterior"));
@@ -559,7 +598,9 @@ int id3;
                  obvserva.setText(rs.getString("observaciones_impor"));
                  
            }
+         
         }
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -592,6 +633,7 @@ int id3;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

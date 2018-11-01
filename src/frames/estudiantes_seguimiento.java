@@ -92,22 +92,15 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "T.I", "Nombre estudiante", "Maestro acompañante actual", "Maetro acompañante anterior", "Fecha", "Grado", "Antiguedad del estudiante "
+                "id", "T.I", "Nombre estudiante", "Maestro acompañante actual", "Maetro acompañante anterior", "Fecha", "Grado", "Antiguedad del estudiante "
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
         });
         jTable1.setToolTipText("Seguimientos actuales");
@@ -118,7 +111,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 971, 357));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 1020, 357));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/refresh-button.png"))); // NOI18N
         jButton1.setToolTipText("Actualizar tabla");
@@ -237,7 +230,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 620, 120, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 690));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 690));
 
         jMenu1.setText("opciones");
 
@@ -303,6 +296,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
             int i;
             mode.addRow( new Object[]{
             rs.getInt("id"),
+                 rs.getInt("TI"),
             rs.getString("nombre_e"),
             rs.getString("maetro_acomp_actual"),
             rs.getString("maestro_acomp_anterior"),
@@ -320,6 +314,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
             int i;
             mode.addRow( new Object[]{
             rs.getInt("id"),
+                 rs.getInt("TI"),
             rs.getString("nombre_e"),
             rs.getString("maetro_acomp_actual"),
             rs.getString("maestro_acomp_anterior"),
@@ -390,21 +385,22 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        System.out.println( mode.getColumnCount());
         for (int i = 0; i < mode.getRowCount(); i++) {
             for (int j = 0; j < mode.getColumnCount(); j++) {
-               int lasd=Integer.parseInt(String.valueOf(mode.getValueAt(i,5)));
-                System.out.println(Integer.parseInt(String.valueOf(mode.getValueAt(i,5))));
-                String sql="UPDATE `seguimiento` SET `nombre_e`=?,`maetro_acomp_actual`=?,`maestro_acomp_anterior`=?,`grado`=?,`antiguedad_estudiante`=? WHERE  id=?";
+               int lasd=Integer.parseInt(String.valueOf(mode.getValueAt(i,6)));
+                System.out.println(Integer.parseInt(String.valueOf(mode.getValueAt(i,6))));
+                String sql="UPDATE `seguimiento` SET `TI`=?,`nombre_e`=?, `maetro_acomp_actual`=?,`maestro_acomp_anterior`=?,`grado`=?,`antiguedad_estudiante`=? WHERE  `id`=?";
                 try {
                     PreparedStatement ca= cn.prepareStatement(sql);
-                    
-                    ca.setString(1, String.valueOf(mode.getValueAt(i,1)));
-                     ca.setString(2,String.valueOf(mode.getValueAt(i,2)));
-                      ca.setString(3,String.valueOf(mode.getValueAt(i,3)));
+                       ca.setInt(1,Integer.parseInt(String.valueOf(mode.getValueAt(i,1))));
+                    ca.setString(2, String.valueOf(mode.getValueAt(i,2)));
+                     ca.setString(3,String.valueOf(mode.getValueAt(i,3)));
+                      ca.setString(4,String.valueOf(mode.getValueAt(i,4)));
                    
-                        ca.setInt(4, lasd);
-                         ca.setString(5,String.valueOf(mode.getValueAt(i,6)));
-                           ca.setString(6,String.valueOf(mode.getValueAt(i,0)));
+                        ca.setInt(5, lasd);
+                         ca.setString(6,String.valueOf(mode.getValueAt(i,7)));
+                           ca.setString(7,String.valueOf(mode.getValueAt(i,0)));
                            ca.execute();
                           
                 } catch (SQLException ex) {
@@ -487,6 +483,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         while (rs.next()) {
             int i;
             mode.addRow( new Object[]{
+            rs.getInt("id"),
             rs.getInt("TI"),
             rs.getString("nombre_e"),
             rs.getString("maetro_acomp_actual"),
