@@ -117,6 +117,8 @@ int id3;
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        estructura_familiar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -147,10 +149,10 @@ int id3;
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre del estudiante :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 140, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 140, 20));
 
         nombre_e.setToolTipText("Ingrese nombre de estudiante");
-        jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 180, -1));
+        jPanel1.add(nombre_e, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 180, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 10, 150));
@@ -158,7 +160,7 @@ int id3;
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 10, 150));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 580, -1));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 610, 10));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -167,19 +169,19 @@ int id3;
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Maestro Acompañante actual:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         maetro_actual.setText(" ");
         maetro_actual.setToolTipText("Ingrese nombre de maestro acompañante actual");
-        jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 160, -1));
+        jPanel1.add(maetro_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Maestro Acompañante anterior:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         maestro_anterior.setToolTipText("Ingrese nombre de maestro acompañante anterior");
-        jPanel1.add(maestro_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 180, -1));
+        jPanel1.add(maestro_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 180, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,14 +297,25 @@ int id3;
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tarjeta de Identidad:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 150, 20));
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 130, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 130, -1));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Estructura familiar:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 130, 30));
+
+        estructura_familiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estructura_familiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(estructura_familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo edit.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 780));
@@ -359,7 +372,7 @@ int id3;
         
         if(id==0){
             try {
-                PreparedStatement psr=cn.prepareStatement("INSERT INTO `seguimiento`( `nombre_e`, `maetro_acomp_actual`, `maestro_acomp_anterior`, `fecha`, `grado`, `antiguedad_estudiante`, `motivo_rem`, `seguimiento_apoyo`, `observaciones_impor`, `TI`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement psr=cn.prepareStatement("INSERT INTO `seguimiento`( `nombre_e`, `maetro_acomp_actual`, `maestro_acomp_anterior`, `fecha`, `grado`, `antiguedad_estudiante`, `motivo_rem`, `seguimiento_apoyo`, `observaciones_impor`, `TI`, `estruc_familiar`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
                             psr.setString(1,nombre_e.getText());
             psr.setString(2,maetro_actual.getText());
             psr.setString(3,maestro_anterior.getText());
@@ -370,6 +383,7 @@ int id3;
             psr.setString(8,apoyo.getText());
             psr.setString(9,obvserva.getText());
             psr.setInt(10,Integer.parseInt(jTextField1.getText()));
+            psr.setString(11,estructura_familiar.getText());
             
             psr.executeUpdate();
             estudiantes_seguimiento a=new estudiantes_seguimiento();
@@ -384,7 +398,7 @@ int id3;
             
              
                    try {
-                PreparedStatement psr=cn.prepareStatement("UPDATE `seguimiento` SET `nombre_e`=?,`maetro_acomp_actual`=?,`maestro_acomp_anterior`=?,`fecha`=?,`grado`=?,`antiguedad_estudiante`=?,`motivo_rem`=?,`seguimiento_apoyo`=?,`observaciones_impor`=? WHERE  id=?");
+                PreparedStatement psr=cn.prepareStatement("UPDATE `seguimiento` SET `nombre_e`=?,`maetro_acomp_actual`=?,`maestro_acomp_anterior`=?,`fecha`=?,`grado`=?,`antiguedad_estudiante`=?,`motivo_rem`=?,`seguimiento_apoyo`=?,`observaciones_impor`=?,`estruc_familiar`=? WHERE  id=?");
                             psr.setString(1,nombre_e.getText());
             psr.setString(2,maetro_actual.getText());
             psr.setString(3,maestro_anterior.getText());
@@ -395,6 +409,8 @@ int id3;
             psr.setString(8,apoyo.getText());
             psr.setString(9,obvserva.getText());
              psr.setInt(10,Integer.parseInt(jTextField1.getText()));
+             psr.setString(11,estructura_familiar.getText());
+                     
             
             psr.executeUpdate();
             estudiantes_seguimiento a=new estudiantes_seguimiento();
@@ -449,6 +465,7 @@ int id3;
         apoyo.setText("");
         obvserva.setText("");
         jLabel13.setText("0");
+        estructura_familiar.setText("");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -492,6 +509,7 @@ int id3;
         maetro_actual.setText("");
         grado.setText("");
         antiguedad.setText("");
+        estructura_familiar.setText("");
         String nombre=jTextField1.getText();
    
         Statement st=cn.createStatement();
@@ -502,7 +520,7 @@ int id3;
             maetro_actual.setText(rs.getString("maetro_acomp_actual"));
             grado.setText(rs.getString("grado"));
             antiguedad.setText(rs.getString("antiguedad_estudiante"));
-            
+            estructura_familiar.setText(rs.getString("estruc_familiar"));
         }
     } catch (SQLException ex) {
         Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
@@ -541,6 +559,10 @@ int id3;
     }
        
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void estructura_familiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estructura_familiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_estructura_familiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -596,6 +618,7 @@ int id3;
                  remision.setText(rs.getString("motivo_rem"));
                  apoyo.setText(rs.getString("seguimiento_apoyo"));
                  obvserva.setText(rs.getString("observaciones_impor"));
+                 estructura_familiar.setText(rs.getString("estruc_familiar"));
                  
            }
          
@@ -606,6 +629,7 @@ int id3;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField antiguedad;
     private javax.swing.JTextArea apoyo;
+    private javax.swing.JTextField estructura_familiar;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField grado;
     private javax.swing.JButton jButton1;
@@ -617,6 +641,7 @@ int id3;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

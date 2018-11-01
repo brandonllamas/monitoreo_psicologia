@@ -22,6 +22,8 @@ public class seguimiento extends javax.swing.JFrame {
     conected con=new conected();
     Connection cn=con.conect();
     DefaultTableModel mode;
+    int ti2;
+    String nombre;
     /**
      * Creates new form seguimiento
      */
@@ -30,6 +32,9 @@ public class seguimiento extends javax.swing.JFrame {
     }
     public seguimiento(int ti,String name) throws SQLException{
     initComponents();
+    String to=Integer.toString(ti);
+   subtituilo.setText(Integer.toString(ti));
+        System.out.println(to+" hola");
     titulo.setText(name);
         System.out.println(ti);
         showdatos(ti);
@@ -47,9 +52,15 @@ public class seguimiento extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         titulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        subtituilo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(512, 485));
+        setMinimumSize(new java.awt.Dimension(512, 485));
+        setSize(new java.awt.Dimension(512, 485));
+        getContentPane().setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,55 +87,46 @@ public class seguimiento extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(58, 136, 375, 275);
+
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(titulo);
+        titulo.setBounds(10, 24, 492, 60);
 
-        jButton1.setText("ver seguimiento");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(110, 420, 120, 50);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jButton3.setText("agregar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(270, 420, 106, 49);
+
+        subtituilo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(subtituilo);
+        subtituilo.setBounds(60, 90, 400, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-                 edit ventana = null;
+                 acompañamiento ventana = null;
         try {
                int i=jTable1.getSelectedRow();
         int id = (int) mode.getValueAt(i, 0);
-            ventana = new edit(id);
+            ventana = new acompañamiento(id,ti2,nombre);
         } catch (SQLException ex) {
             Logger.getLogger(estudiantes_seguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -133,7 +135,27 @@ public class seguimiento extends javax.swing.JFrame {
       
         ventana.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int id=0;
+        acompañamiento ventana=null;
+        String vnombre=titulo.getText();
+        try {
+            ventana = new acompañamiento(0,ti2,vnombre);
+        } catch (SQLException ex) {
+            Logger.getLogger(seguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ventana.setVisible(false);
+   
+      
+      
+        ventana.setVisible(true);
+        dispose();
+        
+        System.out.println(nombre);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,14 +205,17 @@ public class seguimiento extends javax.swing.JFrame {
             rs.getInt("grado"),
             rs.getString("motivo_rem")
             });
+
             
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel subtituilo;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
