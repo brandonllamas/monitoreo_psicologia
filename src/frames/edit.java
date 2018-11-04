@@ -113,12 +113,12 @@ int id3;
         obvserva = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         estructura_familiar = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -282,9 +282,6 @@ int id3;
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 700, 100, 70));
 
-        jLabel13.setText("0");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 700, 60, 40));
-
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/loupe.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -316,6 +313,9 @@ int id3;
             }
         });
         jPanel1.add(estructura_familiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 160, -1));
+
+        jLabel13.setText("0");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 700, 60, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo edit.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 780));
@@ -408,8 +408,8 @@ int id3;
             psr.setString(7,remision.getText());
             psr.setString(8,apoyo.getText());
             psr.setString(9,obvserva.getText());
-             psr.setInt(10,Integer.parseInt(jTextField1.getText()));
-             psr.setString(11,estructura_familiar.getText());
+             psr.setInt(11,Integer.parseInt(jTextField1.getText()));
+             psr.setString(10,estructura_familiar.getText());
                      
             
             psr.executeUpdate();
@@ -550,8 +550,9 @@ int id3;
         String name=nombre_e.getText();
         System.out.println(id3);
         seguimiento a;
+        int id=Integer.parseInt(jLabel13.getText());
     try {
-        a = new seguimiento(ti,name);
+        a = new seguimiento(ti,name,id);
          a.setVisible(true);
         dispose();
     } catch (SQLException ex) {

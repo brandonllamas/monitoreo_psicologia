@@ -30,9 +30,10 @@ public class seguimiento extends javax.swing.JFrame {
     public seguimiento() {
         initComponents();
     }
-    public seguimiento(int ti,String name) throws SQLException{
+    public seguimiento(int ti,String name,int id) throws SQLException{
     initComponents();
     String to=Integer.toString(ti);
+    idt.setText(Integer.toString(id));
    subtituilo.setText(Integer.toString(ti));
         System.out.println(to+" hola");
     titulo.setText(name);
@@ -55,6 +56,7 @@ public class seguimiento extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         subtituilo = new javax.swing.JLabel();
+        idt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(512, 485));
@@ -93,7 +95,7 @@ public class seguimiento extends javax.swing.JFrame {
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(titulo);
-        titulo.setBounds(10, 24, 492, 60);
+        titulo.setBounds(0, 10, 492, 60);
 
         jButton2.setText("editar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +119,10 @@ public class seguimiento extends javax.swing.JFrame {
         getContentPane().add(subtituilo);
         subtituilo.setBounds(60, 90, 400, 20);
 
+        idt.setText("jLabel1");
+        getContentPane().add(idt);
+        idt.setBounds(380, 420, 34, 14);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +132,7 @@ public class seguimiento extends javax.swing.JFrame {
         try {
                int i=jTable1.getSelectedRow();
         int id = (int) mode.getValueAt(i, 0);
-            ventana = new acompañamiento(id,ti2,nombre);
+            ventana = new acompañamiento(id,Integer.parseInt(subtituilo.getText()),titulo.getText(),0);
         } catch (SQLException ex) {
             Logger.getLogger(estudiantes_seguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -142,7 +148,7 @@ public class seguimiento extends javax.swing.JFrame {
         acompañamiento ventana=null;
         String vnombre=titulo.getText();
         try {
-            ventana = new acompañamiento(0,ti2,vnombre);
+            ventana = new acompañamiento(0,Integer.parseInt(subtituilo.getText()),vnombre,Integer.parseInt(idt.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(seguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -211,6 +217,7 @@ public class seguimiento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel idt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;

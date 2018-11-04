@@ -6,10 +6,15 @@
 package frames;
 
 import bd.conected;
+import com.sun.jmx.snmp.BerDecoder;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,19 +23,27 @@ import java.sql.Statement;
 public class acompañamiento extends javax.swing.JFrame {
 conected con=new conected ();
 Connection cn=con.conect();
+String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,estructura;
     /**
      * Creates new form acompañamiento
      */
     public acompañamiento() {
         initComponents();
     }
-    public acompañamiento(int id,int ti,String nombre) throws SQLException{
+    public acompañamiento(int id,int ti,String nombre,int suid) throws SQLException{
     initComponents();
     if(id==0){
-    txt_nombre.setText("Nombre estudiante: "+nombre);
-    txt_tarjeta.setText("Tarjeta de identidad: "+Integer.toString(ti));
+        showdatosid2(suid);
+        subid.setText(Integer.toString(suid));
+        jLabel1.setText(Integer.toString(id));
+    txt_nombre.setText(nombre);
+    txt_tarjeta.setText(Integer.toString(ti));
     }else{
-    
+        showdatosid2(id);
+         subid.setText(Integer.toString(suid));
+        jLabel1.setText(Integer.toString(id));
+    txt_nombre.setText(nombre);
+    txt_tarjeta.setText(Integer.toString(ti));
         showdatosid(id);
     }
     }
@@ -53,6 +66,8 @@ Connection cn=con.conect();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_seguimiento = new javax.swing.JTextPane();
         jt_fecha = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        subid = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -92,15 +107,33 @@ Connection cn=con.conect();
         getContentPane().add(jt_fecha);
         jt_fecha.setBounds(80, 100, 110, 20);
 
+        jLabel1.setText("0");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(280, 100, 100, 60);
+
+        subid.setText("0");
+        getContentPane().add(subid);
+        subid.setBounds(280, 170, 6, 14);
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("Guardar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setText("imagenes");
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("nuevo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -110,6 +143,70 @@ Connection cn=con.conect();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+                int id=Integer.parseInt(jLabel1.getText());
+        String keyns=jt_fecha.getText();
+        if(keyns.contains("-")){
+        
+        if(id==0){
+            try {
+                PreparedStatement psr=cn.prepareStatement("INSERT INTO `seguimiento`( `nombre_e`, `maetro_acomp_actual`, `maestro_acomp_anterior`, `fecha`, `grado`, `antiguedad_estudiante`, `motivo_rem`, `seguimiento_apoyo`, `observaciones_impor`, `TI`, `estruc_familiar`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+                            psr.setString(1,txt_nombre.getText());
+            psr.setString(2,maetro_actual);
+            psr.setString(3,maestro_anterior);
+            psr.setString(4,jt_fecha.getText());
+            psr.setString(5,grado);
+            psr.setString(6,antiguedad);
+            psr.setString(7,remision);
+            psr.setString(8,apoyo);
+            psr.setString(9,obvserva);
+            psr.setInt(10,Integer.parseInt(txt_tarjeta.getText()));
+            psr.setString(11,estructura);
+            int tar=Integer.parseInt(txt_tarjeta.getText());
+            psr.executeUpdate();
+            seguimiento a=new seguimiento(tar,txt_nombre.getText(),Integer.parseInt(subid.getText()));
+            a.setVisible(true);
+            dispose();
+                    
+            } catch (SQLException ex) {
+                Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }else{
+            
+             
+                   try {
+                PreparedStatement psr=cn.prepareStatement("UPDATE `seguimiento` SET `fecha`=?,`seguimiento_apoyo`=?, WHERE  id=?");
+                            psr.setString(1,keyns);
+                            psr.setString(2,jt_seguimiento.getText());
+                            psr.setInt(3,Integer.parseInt(jLabel1.getText()));
+                            
+            
+                     
+            
+            int tar=Integer.parseInt(txt_tarjeta.getText());
+            psr.executeUpdate();
+            seguimiento a=new seguimiento(tar,txt_nombre.getText(),Integer.parseInt(jLabel1.getText()));
+            a.setVisible(true);
+            dispose();
+                    
+            } catch (SQLException ex) {
+                Logger.getLogger(edit.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }}else{
+    JOptionPane.showMessageDialog(rootPane,"Formato de fecha no aceptada<br> formato: DAY-MONTH-YEAR");
+    }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        jt_fecha.setText("");
+        jt_seguimiento.setText("");
+        jLabel1.setText("0");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,16 +246,34 @@ Connection cn=con.conect();
         Statement st= cn.createStatement();
         ResultSet rs=st.executeQuery("SELECT * FROM seguimiento where id="+id);
         while(rs.next()){
-            txt_nombre.setText("Nombre estudiante:"+rs.getString("nombre_e"));
+
             jt_fecha.setText(rs.getString("fecha"));
             jt_seguimiento.setText(rs.getString("seguimiento_apoyo"));
             
         }
     
     }
-  
+      private void showdatosid2(int id) throws SQLException{
+        Statement st= cn.createStatement();
+        ResultSet rs=st.executeQuery("SELECT * FROM seguimiento where id="+id);
+        while(rs.next()){
+            maetro_actual=rs.getString("maetro_acomp_actual");
+           maestro_anterior=rs.getString("maestro_acomp_anterior");
+         grado=rs.getString("grado");
+         antiguedad=rs.getString("antiguedad_estudiante");
+         remision=rs.getString("motivo_rem");
+         apoyo=rs.getString("seguimiento_apoyo");
+         obvserva=rs.getString("observaciones_impor");
+         estructura=rs.getString("estruc_familiar");
+         
+        
+            
+        }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
@@ -171,6 +286,7 @@ Connection cn=con.conect();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jt_fecha;
     private javax.swing.JTextPane jt_seguimiento;
+    private javax.swing.JLabel subid;
     private javax.swing.JLabel txt_nombre;
     private javax.swing.JLabel txt_tarjeta;
     // End of variables declaration//GEN-END:variables
