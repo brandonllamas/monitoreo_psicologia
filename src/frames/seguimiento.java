@@ -57,11 +57,13 @@ public class seguimiento extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         subtituilo = new javax.swing.JLabel();
         idt = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(512, 485));
-        setMinimumSize(new java.awt.Dimension(512, 485));
-        setSize(new java.awt.Dimension(512, 485));
+        setMaximumSize(new java.awt.Dimension(477, 523));
+        setMinimumSize(new java.awt.Dimension(477, 523));
+        setResizable(false);
+        setSize(new java.awt.Dimension(477, 523));
         getContentPane().setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,7 +92,7 @@ public class seguimiento extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(58, 136, 375, 275);
+        jScrollPane2.setBounds(20, 130, 440, 275);
 
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -104,7 +106,7 @@ public class seguimiento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(110, 420, 120, 50);
+        jButton2.setBounds(160, 420, 120, 50);
 
         jButton3.setText("agregar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -113,15 +115,24 @@ public class seguimiento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(270, 420, 106, 49);
+        jButton3.setBounds(330, 420, 106, 49);
 
         subtituilo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(subtituilo);
         subtituilo.setBounds(60, 90, 400, 20);
 
-        idt.setText("jLabel1");
+        idt.setText("0");
         getContentPane().add(idt);
-        idt.setBounds(380, 420, 34, 14);
+        idt.setBounds(380, 420, 6, 14);
+
+        jButton1.setText("atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(40, 420, 80, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,6 +173,18 @@ public class seguimiento extends javax.swing.JFrame {
         System.out.println(nombre);
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        estudiantes_seguimiento es = null;
+        try {
+            es = new estudiantes_seguimiento();
+        } catch (SQLException ex) {
+            Logger.getLogger(seguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        es.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +241,7 @@ public class seguimiento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel idt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;

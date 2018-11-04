@@ -83,37 +83,41 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         getContentPane().setLayout(null);
 
         txt_nombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_nombre.setText("Nombre estudiante");
         getContentPane().add(txt_nombre);
-        txt_nombre.setBounds(20, 0, 193, 92);
+        txt_nombre.setBounds(3, 0, 530, 92);
 
         txt_tarjeta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_tarjeta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_tarjeta.setText("Tarjeta de identidad");
         getContentPane().add(txt_tarjeta);
-        txt_tarjeta.setBounds(280, 10, 210, 80);
+        txt_tarjeta.setBounds(0, 100, 530, 80);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("fecha:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 100, 60, 14);
+        jLabel3.setBounds(40, 210, 60, 14);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Seguimiento y apoyo realizado :");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 160, 160, 14);
+        jLabel4.setBounds(30, 250, 190, 14);
 
         jScrollPane1.setViewportView(jt_seguimiento);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 200, 440, 150);
+        jScrollPane1.setBounds(30, 270, 440, 150);
         getContentPane().add(jt_fecha);
-        jt_fecha.setBounds(80, 100, 110, 20);
+        jt_fecha.setBounds(90, 210, 110, 20);
 
         jLabel1.setText("0");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 100, 100, 60);
+        jLabel1.setBounds(130, 430, 100, 60);
 
         subid.setText("0");
         getContentPane().add(subid);
-        subid.setBounds(280, 170, 6, 14);
+        subid.setBounds(70, 450, 30, 30);
 
         jMenu1.setText("File");
 
