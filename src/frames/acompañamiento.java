@@ -7,6 +7,7 @@ package frames;
 
 import bd.conected;
 import com.sun.jmx.snmp.BerDecoder;
+import frames.imagenes.tabla_imagen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -130,6 +131,11 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setText("imagenes");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("nuevo");
@@ -211,6 +217,17 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         jt_seguimiento.setText("");
         jLabel1.setText("0");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    try {
+        // TODO add your handling code here:
+        tabla_imagen s=new tabla_imagen(Integer.parseInt(txt_tarjeta.getText()));
+        s.setVisible(true);
+        dispose();
+    } catch (SQLException ex) {
+        Logger.getLogger(acompañamiento.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

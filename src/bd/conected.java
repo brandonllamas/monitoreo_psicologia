@@ -7,6 +7,8 @@ package bd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,4 +39,17 @@ public class conected {
         
         return link;
     }
+        public ResultSet visualizar(int id){
+       conected con=new conected ();
+Connection cn=con.conect();
+        ResultSet rs = null;
+        try{
+            PreparedStatement ps = cn.prepareStatement("select * from imagenes where TI="+id);
+            rs = ps.executeQuery();
+        }catch(Exception ex){
+            System.out.println("Error de consulta");
+        }
+        return rs;
+    }
 }
+
