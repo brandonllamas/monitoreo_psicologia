@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,7 +36,10 @@ public class tabla_imagen extends javax.swing.JFrame {
      */
     public tabla_imagen() {
         initComponents();
-     
+         VerTabla v = new VerTabla();
+        v.visualizar_tabla(tabla,1002092830);
+   
+    jLabel3.setText(Integer.toString(1002092830));
     }
     public tabla_imagen(int Ti) throws SQLException{
     initComponents();
@@ -131,6 +135,9 @@ public class tabla_imagen extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
            JFileChooser j = new JFileChooser();
+           FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+           j.setFileFilter(fil);
+        
         j.setCurrentDirectory(new File("Imagenes/"));
         int ap = j.showOpenDialog(this);
         
@@ -143,7 +150,7 @@ public class tabla_imagen extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        guardar(ruta,Integer.parseInt(jLabel1.getText()));
+        guardar(ruta,Integer.parseInt(jLabel3.getText()));
         limpiartabla();
        VerTabla v = new VerTabla();
         v.visualizar_tabla(tabla,Integer.parseInt(jLabel3.getText()));
