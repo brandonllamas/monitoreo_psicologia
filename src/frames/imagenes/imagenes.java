@@ -5,17 +5,40 @@
  */
 package frames.imagenes;
 
+import bd.conected;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Brandon Llamas
  */
 public class imagenes extends javax.swing.JFrame {
-
+  conected con=new conected();
+    Connection cn=con.conect();
     /**
      * Creates new form imagenes
      */
-    public imagenes() {
+    public imagenes() throws SQLException, IOException {
         initComponents();
+        showdatos(1);
+    }
+    public imagenes(int id,int ti) throws SQLException, IOException{
+    initComponents();
+    jLabel2.setText(Integer.toString(ti));
+    showdatos(id);
+    
     }
 
     /**
@@ -27,21 +50,52 @@ public class imagenes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(836, 577));
+        setMinimumSize(new java.awt.Dimension(836, 577));
+        setPreferredSize(new java.awt.Dimension(836, 577));
+        setResizable(false);
+        getContentPane().setLayout(null);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 836, 560);
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(58, 566, 34, 14);
+
+        jMenu1.setText("opciones");
+
+        jMenuItem1.setText("atras");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      try {
+          // TODO add your handling code here:
+          tabla_imagen ds=new tabla_imagen(Integer.parseInt(jLabel2.getText()));
+          ds.setVisible(true);
+          dispose();
+      } catch (SQLException ex) {
+          Logger.getLogger(imagenes.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,11 +127,46 @@ public class imagenes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new imagenes().setVisible(true);
+                try {
+                    new imagenes().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(imagenes.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(imagenes.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
+        public void showdatos(int ti) throws SQLException, IOException{
+         
+        Statement a=cn.createStatement();
+        String query="SELECT * FROM imagenes Where id="+ti;
+        ResultSet rs=a.executeQuery(query);
+        while (rs.next()) {
+                          ByteArrayOutputStream ouput = new ByteArrayOutputStream();
+                InputStream isdatos = rs.getBinaryStream("img");
+                 int temp=isdatos.read();
+
+                while(temp>=0)
+        {
+           ouput.write((char)temp);
+           temp=isdatos.read();
+// 836, 609
+        }
+                  Image imagen=Toolkit.getDefaultToolkit().createImage(ouput.toByteArray());
+        imagen=imagen.getScaledInstance(836,609, 3);
+        jLabel1.setIcon(new ImageIcon(imagen));
+        }
+        
+    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

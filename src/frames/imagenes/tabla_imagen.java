@@ -9,6 +9,7 @@ import bd.conected;
 import clases.VerTabla;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,9 +67,12 @@ public class tabla_imagen extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(777, 332));
         setMinimumSize(new java.awt.Dimension(777, 332));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -95,39 +99,61 @@ public class tabla_imagen extends javax.swing.JFrame {
         }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 11, 444, 310);
+        jScrollPane1.setBounds(10, 10, 444, 310);
 
-        jButton1.setText("FOTO");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/loupe.png"))); // NOI18N
+        jButton1.setAutoscrolls(true);
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(515, 175, 61, 23);
-
-        jLabel1.setText("RUTA");
+        jButton1.setBounds(600, 160, 120, 40);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(450, 140, 340, 23);
 
-        jButton2.setText("GUARDAR");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/save.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(462, 240, 81, 23);
+        jButton2.setBounds(462, 220, 97, 70);
 
-        jButton3.setText("VER");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eye.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
-        jButton3.setBounds(616, 240, 51, 23);
+        jButton3.setBounds(680, 220, 120, 70);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(487, 11, 201, 105);
+        jLabel2.setBounds(487, 11, 360, 105);
 
         jLabel3.setText("10");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(470, 290, 220, 14);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tabla imagen.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 860, 340);
+
+        jMenu1.setText("Opciones");
+
+        jMenuItem1.setText("Atras");
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,11 +177,31 @@ public class tabla_imagen extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         guardar(ruta,Integer.parseInt(jLabel3.getText()));
-        limpiartabla();
+    
+        
        VerTabla v = new VerTabla();
         v.visualizar_tabla(tabla,Integer.parseInt(jLabel3.getText()));
-        
+        jLabel2.setText("");
+        jLabel1.setText("RUTA");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         int i=tabla.getSelectedRow();
+        int id = (int) tabla.getValueAt(i,0);
+        System.out.println(id);
+        try {
+            imagenes im= new imagenes(id,Integer.parseInt(jLabel3.getText()));
+            im.setVisible(true);
+            dispose();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(tabla_imagen.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(tabla_imagen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,14 +269,8 @@ public class tabla_imagen extends javax.swing.JFrame {
             System.out.println("Error al agregar usuario "+ex.getMessage());
         }
     }
-                void limpiartabla(){
+            
 
-int a =mode.getRowCount()-1;
-System.out.println(a);
-for(int i=a; i>=0; i--){
-System.out.println(i);
-mode.removeRow(i );
-}}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -239,6 +279,10 @@ mode.removeRow(i );
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables

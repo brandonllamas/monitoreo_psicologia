@@ -44,7 +44,7 @@ public class conected {
 Connection cn=con.conect();
         ResultSet rs = null;
         try{
-            PreparedStatement ps = cn.prepareStatement("select * from imagenes where TI="+id);
+            PreparedStatement ps = cn.prepareStatement("select *  from imagenes where TI="+id);
             rs = ps.executeQuery();
         }catch(Exception ex){
             System.out.println("Error de consulta");

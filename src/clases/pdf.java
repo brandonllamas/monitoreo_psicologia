@@ -17,6 +17,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -28,6 +29,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+
+import com.itextpdf.text.pdf.PdfWriter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,10 +68,13 @@ String ruta;
               PdfWriter.getInstance(document, file);
               document.open();
               PdfPTable tabla = new PdfPTable(6);
-              Paragraph p = new Paragraph("Lista de Seguimiento Estudiantil\n\n", FontFactory.getFont("Arial",16,Font.ITALIC,BaseColor.BLACK));
-              
+              Paragraph p = new Paragraph("Colegio San Alberto Magno\n\n", FontFactory.getFont("Arial",30,Font.ITALIC,BaseColor.BLACK));
+             
               p.setAlignment(Element.ALIGN_CENTER);
               document.add(p);
+             
+              
+
               
               document.add(new Paragraph(""));
               

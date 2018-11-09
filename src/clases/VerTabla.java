@@ -22,7 +22,7 @@ public void visualizar_tabla(JTable tabla,int ti){
     //Image img = null;   
     tabla.setDefaultRenderer(Object.class, new TablaImagen());
     DefaultTableModel dt = new DefaultTableModel();
-    dt.addColumn("Nombre");
+    dt.addColumn("id");
     dt.addColumn("Foto");
     
     try{

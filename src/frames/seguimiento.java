@@ -58,6 +58,7 @@ public class seguimiento extends javax.swing.JFrame {
         subtituilo = new javax.swing.JLabel();
         idt = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(477, 523));
@@ -95,28 +96,34 @@ public class seguimiento extends javax.swing.JFrame {
         jScrollPane2.setBounds(20, 130, 440, 275);
 
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(titulo);
         titulo.setBounds(0, 10, 492, 60);
 
-        jButton2.setText("editar");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jButton2.setMaximumSize(new java.awt.Dimension(71, 23));
+        jButton2.setMinimumSize(new java.awt.Dimension(71, 23));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(160, 420, 120, 50);
+        jButton2.setBounds(160, 420, 120, 80);
 
-        jButton3.setText("agregar");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add-button-inside-black-circle.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(330, 420, 106, 49);
+        jButton3.setBounds(326, 420, 110, 80);
 
+        subtituilo.setForeground(new java.awt.Color(255, 255, 255));
         subtituilo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(subtituilo);
         subtituilo.setBounds(60, 90, 400, 20);
@@ -125,14 +132,22 @@ public class seguimiento extends javax.swing.JFrame {
         getContentPane().add(idt);
         idt.setBounds(380, 420, 6, 14);
 
-        jButton1.setText("atras");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setMaximumSize(new java.awt.Dimension(71, 23));
+        jButton1.setMinimumSize(new java.awt.Dimension(71, 23));
+        jButton1.setPreferredSize(new java.awt.Dimension(71, 23));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 420, 80, 50);
+        jButton1.setBounds(10, 430, 100, 70);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo tabla imagen.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 480, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -244,6 +259,7 @@ public class seguimiento extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel subtituilo;

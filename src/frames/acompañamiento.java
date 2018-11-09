@@ -69,6 +69,7 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         jt_fecha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         subid = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -79,28 +80,34 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(528, 496));
-        setSize(new java.awt.Dimension(528, 496));
+        setMaximumSize(new java.awt.Dimension(477, 488));
+        setMinimumSize(new java.awt.Dimension(477, 488));
+        setSize(new java.awt.Dimension(477, 488));
         getContentPane().setLayout(null);
 
         txt_nombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_nombre.setForeground(new java.awt.Color(255, 255, 255));
         txt_nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_nombre.setText("Nombre estudiante");
         getContentPane().add(txt_nombre);
-        txt_nombre.setBounds(3, 0, 530, 92);
+        txt_nombre.setBounds(3, 0, 470, 92);
 
         txt_tarjeta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txt_tarjeta.setForeground(new java.awt.Color(255, 255, 255));
         txt_tarjeta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_tarjeta.setText("Tarjeta de identidad");
         getContentPane().add(txt_tarjeta);
-        txt_tarjeta.setBounds(0, 100, 530, 80);
+        txt_tarjeta.setBounds(0, 100, 480, 80);
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("fecha:");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 210, 60, 14);
+        jLabel3.setBounds(40, 210, 50, 14);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Seguimiento y apoyo realizado :");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 250, 190, 14);
@@ -119,6 +126,10 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         subid.setText("0");
         getContentPane().add(subid);
         subid.setBounds(70, 450, 30, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo tabla imagen.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 480, 470);
 
         jMenu1.setText("File");
 
@@ -295,6 +306,7 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
