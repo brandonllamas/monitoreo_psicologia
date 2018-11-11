@@ -71,6 +71,10 @@ public class mod_u extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -224,6 +228,25 @@ public class mod_u extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("cambiar nombre usuario", jPanel1);
 
+        jPanel5.setLayout(null);
+
+        jButton9.setText("agregar Correo");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton9);
+        jButton9.setBounds(80, 290, 130, 23);
+        jPanel5.add(jTextField1);
+        jTextField1.setBounds(50, 170, 390, 40);
+
+        jButton10.setText("ver correos ingresados");
+        jPanel5.add(jButton10);
+        jButton10.setBounds(280, 290, 143, 23);
+
+        jTabbedPane1.addTab("Agregar correo", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -356,6 +379,30 @@ public class mod_u extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreKeyTyped
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+          String correo=jTextField1.getText();
+          if(correo.contains("@")){
+              if(correo.contains(".com")){
+        try {
+              // TODO add your handling code here:
+          PreparedStatement pst=cn.prepareStatement("INSERT INTO `correo`( `correo`) VALUES (?)");
+          pst.setString(1,correo);
+          pst.execute();
+          jTextField1.setText(correo);
+             JOptionPane.showMessageDialog(rootPane,"correo ingresado correctamente");
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+          }
+              }else{
+              JOptionPane.showMessageDialog(rootPane,"correo ingresado incorrecto");
+              }
+              
+          }else{
+                        JOptionPane.showMessageDialog(rootPane,"correo ingresado incorrecto");
+          }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,6 +441,7 @@ public class mod_u extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField con_n;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -401,6 +449,7 @@ public class mod_u extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -410,7 +459,9 @@ public class mod_u extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }

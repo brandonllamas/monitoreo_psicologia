@@ -25,6 +25,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Statement;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.mail.NoSuchProviderException;
@@ -237,12 +238,20 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        conectmail();
-        String correo=JOptionPane.showInputDialog("Ingresar correo");
+              String correo=JOptionPane.showInputDialog("Ingresar correo");
         int wa=correo.length();
         if(correo.contains("@")){
             if(correo.contains(".com")){
+        try {
+               // TODO add your handling code here:
+               Statement st=cn.createStatement();
+               ResultSet rst=st.executeQuery("Select * From correo Where   correo=\""+correo+"\"");
+               while (rst.next()) {
+                   rst.getString("correo");
+                   
+               }
+                     conectmail();
+    
     enviarDatos(correo);
         
      
@@ -251,6 +260,10 @@ public class login extends javax.swing.JFrame {
             a = new Recup(sa,correo);
         a.setVisible(true);
         dispose();
+           } catch (SQLException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+  
             }else{
         JOptionPane.showMessageDialog(rootPane, "correo incorrecto");
             }
