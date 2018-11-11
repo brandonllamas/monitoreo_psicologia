@@ -58,6 +58,7 @@ public class seguimiento extends javax.swing.JFrame {
         subtituilo = new javax.swing.JLabel();
         idt = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,7 +100,7 @@ public class seguimiento extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(titulo);
-        titulo.setBounds(0, 10, 492, 60);
+        titulo.setBounds(10, 70, 492, 60);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pencil.png"))); // NOI18N
         jButton2.setContentAreaFilled(false);
@@ -111,7 +112,7 @@ public class seguimiento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(160, 420, 120, 80);
+        jButton2.setBounds(210, 420, 120, 80);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add-button-inside-black-circle.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
@@ -144,6 +145,19 @@ public class seguimiento extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 430, 100, 70);
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton7.setToolTipText("Volver al menú de inicio");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7);
+        jButton7.setBounds(120, 430, 97, 73);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo tabla imagen.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -200,6 +214,14 @@ public class seguimiento extends javax.swing.JFrame {
         es.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +281,7 @@ public class seguimiento extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

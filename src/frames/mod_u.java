@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.mail.Session;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -33,12 +34,7 @@ public class mod_u extends javax.swing.JFrame {
      */
     public mod_u() {
         initComponents();
-        try {
-               Image img=ImageIO.read(new File("psychored.png"));
-               this.setIconImage(img);
-           } catch (IOException ex) {
-               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-           }
+
         this.setTitle("PSYCHORED");
     }
 
@@ -61,6 +57,7 @@ public class mod_u extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -70,11 +67,16 @@ public class mod_u extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -85,6 +87,7 @@ public class mod_u extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña nueva:");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 120, 33));
 
@@ -138,6 +141,18 @@ public class mod_u extends javax.swing.JFrame {
         });
         jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 90, 70));
 
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton15.setToolTipText("Volver al menú de inicio");
+        jButton15.setBorderPainted(false);
+        jButton15.setContentAreaFilled(false);
+        jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 110, 70));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mod background.jpg"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 420));
 
@@ -152,12 +167,13 @@ public class mod_u extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("cambiar contraseña", jPanel2);
+        jTabbedPane1.addTab("Cambiar contraseña", jPanel2);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre nuevo:");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 100, 32));
 
@@ -212,6 +228,18 @@ public class mod_u extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 70));
 
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton14.setToolTipText("Volver al menú de inicio");
+        jButton14.setBorderPainted(false);
+        jButton14.setContentAreaFilled(false);
+        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 110, 70));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mod background.jpg"))); // NOI18N
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 420));
 
@@ -226,11 +254,12 @@ public class mod_u extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("cambiar nombre usuario", jPanel1);
+        jTabbedPane1.addTab("Cambiar nombre usuario", jPanel1);
 
         jPanel5.setLayout(null);
 
-        jButton9.setText("agregar Correo");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton9.setText("Agregar Correo");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -239,11 +268,59 @@ public class mod_u extends javax.swing.JFrame {
         jPanel5.add(jButton9);
         jButton9.setBounds(80, 290, 130, 23);
         jPanel5.add(jTextField1);
-        jTextField1.setBounds(50, 170, 390, 40);
+        jTextField1.setBounds(90, 180, 300, 30);
 
-        jButton10.setText("ver correos ingresados");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton10.setText("Ver Correos Ingresados");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton10);
-        jButton10.setBounds(280, 290, 143, 23);
+        jButton10.setBounds(260, 290, 170, 23);
+
+        jButton12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancel-button.png"))); // NOI18N
+        jButton12.setToolTipText("Eliminar");
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton12);
+        jButton12.setBounds(390, 180, 57, 33);
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
+        jButton11.setToolTipText("Volver a tabla");
+        jButton11.setBorderPainted(false);
+        jButton11.setContentAreaFilled(false);
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton11);
+        jButton11.setBounds(20, 330, 97, 73);
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton13.setToolTipText("Volver al menú de inicio");
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton13);
+        jButton13.setBounds(390, 20, 97, 73);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mod background.jpg"))); // NOI18N
+        jPanel5.add(jLabel6);
+        jLabel6.setBounds(0, 0, 500, 420);
 
         jTabbedPane1.addTab("Agregar correo", jPanel5);
 
@@ -381,6 +458,7 @@ public class mod_u extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
           String correo=jTextField1.getText();
+   
           if(correo.contains("@")){
               if(correo.contains(".com")){
         try {
@@ -390,7 +468,7 @@ public class mod_u extends javax.swing.JFrame {
           pst.execute();
           jTextField1.setText(correo);
              JOptionPane.showMessageDialog(rootPane,"correo ingresado correctamente");
-              
+              jTextField1.setText("");
           } catch (SQLException ex) {
               Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
           }
@@ -402,6 +480,59 @@ public class mod_u extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane,"correo ingresado incorrecto");
           }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+          try {
+              // TODO add your handling code here:
+              estudiantes_seguimiento a=new estudiantes_seguimiento();
+              a.setVisible(true);
+              dispose();
+          } catch (SQLException ex) {
+              Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        tablacorreos a = null;
+          try {
+              a = new tablacorreos();
+          } catch (SQLException ex) {
+              Logger.getLogger(mod_u.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,6 +573,11 @@ public class mod_u extends javax.swing.JFrame {
     private javax.swing.JTextField con_n;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -455,6 +591,7 @@ public class mod_u extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

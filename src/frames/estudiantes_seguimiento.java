@@ -76,6 +76,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -140,7 +141,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 87, 65));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, 87, 65));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add-button-inside-black-circle.png"))); // NOI18N
         jButton3.setToolTipText("Agregar nuevo seguimiento");
@@ -152,7 +153,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 620, 100, 65));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 620, 100, 65));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pnj.png"))); // NOI18N
@@ -167,7 +168,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, 116, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 620, 116, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/filter-tool-black-shape.png"))); // NOI18N
         jButton5.setToolTipText("Filtrar");
@@ -204,7 +205,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 620, 110, 70));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 110, 70));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
         jButton7.setToolTipText("Volver al menú de inicio");
@@ -227,7 +228,16 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 620, 120, 70));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 120, 70));
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mail-send.png"))); // NOI18N
+        jButton9.setContentAreaFilled(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 630, 130, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 690));
@@ -437,6 +447,22 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+                String correo=JOptionPane.showInputDialog("Ingresar correo");
+        int wa=correo.length();
+        if(correo.contains("@")){
+            if(correo.contains(".com")){
+                conectmail();    
+               enviarDatos(correo);                               
+            }else{
+        JOptionPane.showMessageDialog(rootPane, "correo incorrecto");
+            }
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "correo incorrecto");
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -503,7 +529,19 @@ for(int i=a; i>=0; i--){
 System.out.println(i);
 mode.removeRow(i );
 }}
+   public void enviarDatos(String correo){
 
+           try {
+               Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
+               s.enviarConAdjunto("psicologiacolsam@gmail.com",correo,"formato de seguimiento estudiantil ","Formato de recuperacion","formato.pdf","formato.pdf");
+               JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
+           } catch (NoSuchProviderException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    
+    
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -513,6 +551,7 @@ mode.removeRow(i );
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -540,18 +579,6 @@ mode.removeRow(i );
            }
     
     }
-         public void enviarDatos(String correo){
 
-           try {
-               Sesion s= new Sesion("smtp.gmail.com", "587","psicologiacolsam@gmail.com".trim(),"123colsam2030");
-               s.enviarSinAdjunto("psicologiacolsam@gmail.com",correo,"Recuperación contraseña Monitoreo Picologia ","Archivo mandado:");
-               JOptionPane.showMessageDialog(rootPane,"Mensage enviado");
-           } catch (NoSuchProviderException ex) {
-               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-           }
-    
-    
-    
-    }
      
 }

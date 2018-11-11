@@ -7,6 +7,7 @@ package frames.imagenes;
 
 import bd.conected;
 import clases.VerTabla;
+import frames.login;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -67,6 +68,7 @@ public class tabla_imagen extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -132,7 +134,7 @@ public class tabla_imagen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(680, 220, 120, 70);
+        jButton3.setBounds(590, 220, 120, 70);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel2);
@@ -141,6 +143,19 @@ public class tabla_imagen extends javax.swing.JFrame {
         jLabel3.setText("10");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(470, 290, 220, 14);
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton7.setToolTipText("Volver al menú de inicio");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7);
+        jButton7.setBounds(740, 220, 97, 73);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tabla imagen.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -202,6 +217,14 @@ public class tabla_imagen extends javax.swing.JFrame {
             Logger.getLogger(tabla_imagen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,6 +299,7 @@ public class tabla_imagen extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

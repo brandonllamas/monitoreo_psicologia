@@ -69,6 +69,7 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         jt_fecha = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         subid = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -126,6 +127,19 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
         subid.setText("0");
         getContentPane().add(subid);
         subid.setBounds(70, 450, 30, 30);
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/2exit.png"))); // NOI18N
+        jButton7.setToolTipText("Volver al menú de inicio");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7);
+        jButton7.setBounds(0, 0, 97, 73);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo tabla imagen.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -240,6 +254,14 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
     }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        login a=new login();
+        a.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +327,7 @@ String maetro_actual,maestro_anterior,grado,antiguedad,remision,apoyo,obvserva,e
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
