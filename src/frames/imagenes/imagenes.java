@@ -6,9 +6,11 @@
 package frames.imagenes;
 
 import bd.conected;
+import frames.login;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -17,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,11 +36,27 @@ public class imagenes extends javax.swing.JFrame {
     public imagenes() throws SQLException, IOException {
         initComponents();
         showdatos(1);
+          try {
+       
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        this.setTitle("PSYCHORED");
     }
     public imagenes(int id,int ti) throws SQLException, IOException{
     initComponents();
     jLabel2.setText(Integer.toString(ti));
     showdatos(id);
+      try {
+       
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        this.setTitle("PSYCHORED");
     
     }
 

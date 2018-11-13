@@ -8,6 +8,7 @@ package frames.imagenes;
 import bd.conected;
 import clases.VerTabla;
 import frames.login;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -42,6 +44,14 @@ public class tabla_imagen extends javax.swing.JFrame {
         v.visualizar_tabla(tabla,1002092830);
    
     jLabel3.setText(Integer.toString(1002092830));
+      try {
+       
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        this.setTitle("PSYCHORED");
     }
     public tabla_imagen(int Ti) throws SQLException{
     initComponents();
@@ -49,6 +59,14 @@ public class tabla_imagen extends javax.swing.JFrame {
         v.visualizar_tabla(tabla,Ti);
    
     jLabel3.setText(Integer.toString(Ti));
+      try {
+       
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        this.setTitle("PSYCHORED");
     }
 
     /**
@@ -75,8 +93,11 @@ public class tabla_imagen extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(777, 332));
+        setMaximumSize(new java.awt.Dimension(863, 359));
+        setMinimumSize(new java.awt.Dimension(863, 359));
+        setPreferredSize(new java.awt.Dimension(863, 359));
         setResizable(false);
+        setSize(new java.awt.Dimension(863, 359));
         getContentPane().setLayout(null);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(

@@ -45,6 +45,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         initComponents();
         showdatos();
         try {
+       
                Image img=ImageIO.read(new File("psychored.png"));
                this.setIconImage(img);
            } catch (IOException ex) {
@@ -242,7 +243,7 @@ public class estudiantes_seguimiento extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fonfo from 2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 690));
 
-        jMenu1.setText("opciones");
+        jMenu1.setText("Opciones");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/settings.png"))); // NOI18N
         jMenuItem1.setText("Ajustes de Usuario");

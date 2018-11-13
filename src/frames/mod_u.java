@@ -35,6 +35,13 @@ public class mod_u extends javax.swing.JFrame {
     public mod_u() {
         initComponents();
 
+       try {
+       
+               Image img=ImageIO.read(new File("psychored.png"));
+               this.setIconImage(img);
+           } catch (IOException ex) {
+               Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+           }
         this.setTitle("PSYCHORED");
     }
 
